@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import menuBtn from "../images/icon-menu.svg";
 
 import Logo from "./Logo";
@@ -9,11 +10,13 @@ const Header = () => {
   return (
     <header className="px-6 py-10 flex justify-between w-full items-center relative lg:pr-0">
       <Logo />
-      <Nav navActive={navActive}/>
+      <Nav navActive={navActive} setNavActive={setNavActive} />
       <img
         src={menuBtn}
         alt="menu button"
-        className={` ${navActive ? 'rotate-90' : 'rotate-0'} cursor-pointer transition-transform duration-300 lg:hidden`}
+        className={` ${
+          navActive ? "rotate-90" : "rotate-0"
+        } cursor-pointer transition-transform duration-300 lg:hidden`}
         onClick={() => {
           setNavActive(!navActive);
         }}
