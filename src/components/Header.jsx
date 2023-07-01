@@ -1,14 +1,14 @@
-import { useState } from "react";
-
 import menuBtn from "../images/icon-menu.svg";
+import { PropTypes } from "prop-types";
 
 import Logo from "./Logo";
 import Nav from "./Nav";
 
-const Header = () => {
-  const [navActive, setNavActive] = useState(false);
+const Header = ({ navActive, setNavActive }) => {
   return (
-    <header className="px-6 py-10 flex justify-between w-full items-center relative lg:pr-0">
+    <header
+      className={`px-6 h-40 flex justify-between relative w-screen lg:pr-0 lg:items-center md:px-16 `}
+    >
       <Logo />
       <Nav navActive={navActive} setNavActive={setNavActive} />
       <img
@@ -16,13 +16,18 @@ const Header = () => {
         alt="menu button"
         className={` ${
           navActive ? "rotate-90" : "rotate-0"
-        } cursor-pointer transition-transform duration-300 lg:hidden`}
+        } cursor-pointer transition-transform duration-300 lg:hidden self-center`}
         onClick={() => {
           setNavActive(!navActive);
         }}
       />
     </header>
   );
+};
+
+Header.propTypes = {
+  navActive: PropTypes.bool,
+  setNavActive: PropTypes.func.isRequired,
 };
 
 export default Header;
