@@ -1,5 +1,6 @@
 import { PropTypes } from "prop-types";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 import projectIcon from "../images/palette.svg";
 import aboutIcon from "../images/person.svg";
 import contactIcon from "../images/phone.svg";
@@ -8,17 +9,62 @@ import NavItems from "./NavItems";
 // import { useState } from "react";
 
 const Nav = ({ navActive, setNavActive }) => {
-  const navVariants = {
+    const isDesktop = useMediaQuery({ minWidth: 1024 });
+
+  const navVariants = isDesktop ? 
+  
+  {
+    open : {
+        y : 0
+    },
+    closed : {
+        y : 0,
+        x : 0
+    }
+  }
+
+  :
+  
+  {
     open: {
-      y: 40,
-      opacity: 1,
-      timingFunction: "easeInOutQuad",
-      transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+      y: 0,
+      transition: {
+        duration: 0.7,
+        when: "beforeChildren",
+        staggerChildren: 0.3,
+      },
     },
     closed: {
       y: "-100%",
-      opacity: [1, 1,1,1,1,1,1, 0.5, 0.5, 0.4, 0.3, 0.2, 0.1, 0],
-      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+      transition: {
+        duration: 0.5,
+        when: "afterChildren",
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const navItemsVariants = isDesktop ? 
+   {
+    open : {
+        opacity : 1,
+        x : 0
+    },
+    closed : {
+        opacity : 1, 
+        x :  0
+    }
+   }
+  :
+  {
+    open: {
+      opacity: 1,
+      x: 0,
+    },
+
+    closed: {
+      opacity: 0,
+      x: "100%",
     },
   };
 
@@ -36,16 +82,19 @@ const Nav = ({ navActive, setNavActive }) => {
       icon: contactIcon,
     },
   ];
+
+  
   return (
     <motion.nav
       animate={navActive ? "open" : "closed"}
       variants={navVariants}
-      className={`${
-        navActive ? "" : "lg:translate-x-0"
-      } h-screen flex flex-col absolute right-0 left-0 bg-[#10101A] w-screen top-24 shadow-xl overflow-hidden transition-all duration-700 lg:relative lg:top-0 lg:flex-row lg:space-y-0 lg:space-x-8 lg:shadow-none lg:rounded-r lg:rounded-full  lg:pr-6 lg:pl-12 lg:py-4 lg:h-auto lg:translate-y-0 lg:bg-white lg:justify-end lg:w-fit lg:items-center`}
+      disable={window.innerWidth > 768}
+      className={`flex flex-col absolute right-0 left-0 mx-auto bg-slate-950 border-b-4 justify-center w-full h-screen lg:right-0 lg:flex-row lg:space-y-0 lg:space-x-8 lg:shadow-none lg:rounded lg:rounded-r-full lg:rounded-l-full lg:pr-6 lg:pl-12 lg:py-2 lg:h-auto lg:translate-y-0 lg:bg-white lg:w-fit lg:items-center`}
     >
       {navItems.map((navItem, index) => (
-        <NavItems key={index} setNavActive={setNavActive} navItem={navItem} />
+        <motion.div key={index} variants={navItemsVariants} className="">
+          <NavItems setNavActive={setNavActive} navItem={navItem} />
+        </motion.div>
       ))}
     </motion.nav>
   );
