@@ -4,9 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import projectIcon from "../images/palette.svg";
 import aboutIcon from "../images/person.svg";
 import contactIcon from "../images/phone.svg";
-// import { useState } from "react";
 import NavItems from "./NavItems";
-// import { useState } from "react";
 
 const Nav = ({ navActive, setNavActive }) => {
   const isDesktop = useMediaQuery({ minWidth: 1024 });
@@ -83,7 +81,7 @@ const Nav = ({ navActive, setNavActive }) => {
       animate={navActive ? "open" : "closed"}
       variants={navVariants}
       initial={false}
-      className={`flex flex-col absolute right-0 left-0 mx-auto bg-slate-950 border-b-4 justify-center w-full h-screen lg:right-0 lg:flex-row lg:space-y-0 lg:space-x-8 lg:shadow-none lg:rounded lg:rounded-r-full lg:rounded-l-full lg:pr-6 lg:pl-12 lg:py-2 lg:h-auto lg:translate-y-0 lg:bg-white lg:w-fit lg:items-center`}
+      className={`flex flex-col absolute right-0 left-0 mx-auto bg-slate-950 to-red-900 justify-center w-full h-screen border-b-4 border-indigo-950 lg:relative lg:flex-row lg:space-y-0 lg:space-x-16 lg:shadow-none lg:rounded lg:rounded-l-full  lg:pr-16 lg:py-4 lg:h-auto lg:from-transparent lg:via-transparent lg:to-transparent lg:rounded-l-none lg:w-fit lg:items-center lg:mx-0 `}
     >
       {navItems.map((navItem, index) => (
         <motion.div key={index} variants={navItemsVariants} className="">

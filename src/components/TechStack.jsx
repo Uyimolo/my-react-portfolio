@@ -1,11 +1,4 @@
-// import PropTypes from "prop-type"
-// import {
-//   FaSquareGithub,
-//   FaHtml5,
-//   FaCss3,
-//   FaSquareJs,
-//   FaReact,
-// } from "react-icons/fa6";
+
 import {
   SiFirebase,
   SiHtml5,
