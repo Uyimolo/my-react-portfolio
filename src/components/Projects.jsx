@@ -8,15 +8,16 @@ const Projects = () => {
   return (
     <section className="w-full h-full px-6 ">
       {/* project */}
-      <div className="flex flex-col space-y-2 w-72 mx-auto bg-slate-700 p-4 rounded-3xl shadow-lg shadow-gray-400">
+      <div className="bg-[url('./images/project-images/react-weather-mobile-bg.png')] bg-cover w-72 rounded-3xl mx-auto">
+      <div className="flex flex-col space-y-2  mx-auto bg-indigo-600 p-4 rounded-3xl backdrop-blur-md bg-clip-padding bg-opacity-5 backdrop-filter">
         {/* project image */}
         <div className=" py-2">
           <img src={img2} alt="project" className="rounded-2xl " />
         </div>
         {/* project text */}
         <div className="flex flex-col space-y-2">
-          <h3 className="text-xl text-gray-200 lg:text-2xl">Weather App</h3>
-          <p className="text-gray-400 md:max-w-xl lg:text-lg">
+          <h3 className="text-xl text-white lg:text-2xl">Weather App</h3>
+          <p className="text-white md:max-w-xl lg:text-lg">
             This app allows users to get the current weather forecast for any
             location in the world. Users can simply enter a city name or zip
             code into the search bar and the app will return the current weather
@@ -37,6 +38,8 @@ const Projects = () => {
           </div>
         </div>
       </div>
+      </div>
+      
     </section>
   );
 };
