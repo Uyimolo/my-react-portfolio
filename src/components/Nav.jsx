@@ -37,7 +37,7 @@ const Nav = ({ navActive, setNavActive }) => {
           },
         },
       };
-
+// conditionally set and remove animations for mobile and desktop views
   const navItemsVariants = isDesktop
     ? {
         open: {
@@ -83,6 +83,7 @@ const Nav = ({ navActive, setNavActive }) => {
       initial={false}
       className={`flex flex-col absolute right-0 left-0 mx-auto bg-slate-950 to-red-900 justify-center w-full h-screen border-b-4 border-indigo-950 lg:relative lg:flex-row lg:space-y-0 lg:space-x-16 lg:shadow-none lg:rounded lg:rounded-l-full  lg:pr-16 lg:py-4 lg:h-auto lg:from-transparent lg:via-transparent lg:to-transparent lg:rounded-l-none lg:w-fit lg:items-center lg:mx-0 `}
     >
+      {/* iterate over navItems and display each nav and icon */}
       {navItems.map((navItem, index) => (
         <motion.div key={index} variants={navItemsVariants} className="">
           <NavItems setNavActive={setNavActive} navItem={navItem} />

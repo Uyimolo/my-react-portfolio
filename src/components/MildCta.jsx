@@ -15,6 +15,7 @@ const MildCta = ({ text, link }) => {
       >
         {text}
       </Link>
+      {/* div width increases when isHovered equals true */}
       <div
         className={`h-[2px] mt-2 bg-indigo-600 transition-all duration-700  ${
           isHovered ? "w-full" : "w-8"

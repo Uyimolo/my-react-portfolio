@@ -11,6 +11,7 @@ const Header = ({ navActive, setNavActive }) => {
     >
       <Logo />
       <Nav navActive={navActive} setNavActive={setNavActive} />
+      {/* hamburger menu */}
       <img
         src={menuBtn}
         alt="menu button"
