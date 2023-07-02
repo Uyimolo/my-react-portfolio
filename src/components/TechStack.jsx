@@ -24,8 +24,5 @@ const TechStack = () => {
   );
 };
 
-// TechStack.propTypes = {
-
-// }
 
 export default TechStack;
