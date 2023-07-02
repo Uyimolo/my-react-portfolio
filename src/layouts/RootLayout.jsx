@@ -15,7 +15,7 @@ const RootLayout = () => {
   return (
     <div
       ref={bodyRef}
-      className={`bg-slate-950  overflow-hidden ${
+      className={`bg-slate-900  overflow-hidden ${
         navActive ? "w-screen h-screen" : "w-full min-h-screen"
       }`}
     >

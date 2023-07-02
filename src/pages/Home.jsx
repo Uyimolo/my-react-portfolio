@@ -1,5 +1,6 @@
 import About from "../components/About";
 import Landing from "../components/Landing";
+import Projects from "../components/Projects";
 import TechStack from "../components/TechStack";
 const Home = () => {
   return (
@@ -7,6 +8,7 @@ const Home = () => {
       <Landing />
       <TechStack />
       <About />
+      <Projects />
     </main>
   );
 };
