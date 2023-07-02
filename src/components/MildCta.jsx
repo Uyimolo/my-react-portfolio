@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
-const MildCta = ({ text }) => {
+const MildCta = ({ text, link }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="w-fit ">
       <Link
-        to="works"
+        to={link}
         className="text-gray-300 lg:text-lg"
         onMouseOver={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -25,7 +25,8 @@ const MildCta = ({ text }) => {
 };
 
 MildCta.propTypes = {
-  text: PropTypes.string,
+  text: PropTypes.string.required,
+  link: PropTypes.string,
 };
 
 export default MildCta;
