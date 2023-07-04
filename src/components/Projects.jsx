@@ -29,7 +29,7 @@ const Projects = () => {
     },
     {
       title: "Todo App",
-      projectDesc: `This is a simple to-do app built using Javascript. It allows users to create, edit, and delete to-do items, users can also filter todo items by their active states and theres a drag and drop feature to rearrange todos. The app is also responsive, meaning that it can be used on any device, including desktops, laptops, tablets, and smartphones.`,
+      projectDesc: `This is a simple to-do app built using Javascript. It allows users to create, edit, and delete to-do items, users can also filter todo items by their active states and theres a drag and drop feature to rearrange todos.`,
       technologies: ["JS", "CSS", "HTML"],
       liveLink: "https://uyimolo.github.io/todo-app",
       github: "https://github.com/uyimolo/todo-app",
@@ -38,7 +38,8 @@ const Projects = () => {
     },
   ];
   return (
-    <section className="w-full h-full px-6 flex flex-col space-y-12">
+    <section className="w-full h-full px-6 flex flex-col space-y-12 md:px-16 md:space-y-20">
+      <h2 className="text-2xl text-gray-200 lg:text-3xl">Projects</h2>
       {/* project */}
       {projectList.map((project, index) => (
         <Project key={index} project={project} />
