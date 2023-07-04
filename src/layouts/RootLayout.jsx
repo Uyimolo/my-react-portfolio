@@ -25,13 +25,21 @@ const RootLayout = () => {
         <Outlet />
       </>
 
-      <footer className=" px-6 py-6 bg-gray-700 flex justify-between">
+      <footer className=" px-6 py-6 border-t border-gray-700 space-x-6 flex justify-between md:px-16">
         <Logo />
-        <div className="flex flex-col">
-          <Link to="https://twitter.com/uyimolo247">Github</Link>
-          <Link to="https://twitter.com/uyimolo247">Linkedin</Link>
-          <Link to="https://twitter.com/uyimolo247">Facebook</Link>
-          <Link to="https://twitter.com/uyimolo247">Instagram</Link>
+        <div className="flex flex-wrap text-gray-300 items-center md:max-w-xl  lg:text-lg">
+          <Link to="https://twitter.com/uyimolo247" className="pr-2">
+            Github
+          </Link>
+          <Link to="https://twitter.com/uyimolo247" className="pr-2">
+            Facebook
+          </Link>
+          <Link to="https://twitter.com/uyimolo247" className="pr-2">
+            Instagram
+          </Link>
+          <Link to="https://twitter.com/uyimolo247" className="pr-2">
+            Linkedin
+          </Link>
         </div>
       </footer>
     </div>

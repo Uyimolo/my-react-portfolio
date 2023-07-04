@@ -7,7 +7,7 @@ import Nav from "./Nav";
 const Header = ({ navActive, setNavActive }) => {
   return (
     <header
-      className={`px-6 h-40 flex justify-between relative w-screen lg:pr-0 lg:items-center md:px-16 `}
+      className={`px-6 py-6 flex justify-between relative w-screen lg:pr-0 lg:items-center md:px-16 `}
     >
       <Logo />
       <Nav navActive={navActive} setNavActive={setNavActive} />
@@ -17,7 +17,7 @@ const Header = ({ navActive, setNavActive }) => {
         alt="menu button"
         className={` ${
           navActive ? "rotate-90" : "rotate-0"
-        } cursor-pointer transition-transform duration-300 lg:hidden self-center`}
+        } cursor-pointer transition-transform duration-300 z-20 lg:hidden self-center`}
         onClick={() => {
           setNavActive(!navActive);
         }}

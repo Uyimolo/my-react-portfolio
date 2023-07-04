@@ -4,7 +4,7 @@ const Project = ({ project }) => {
   // const mobile = project.mobileView
   return (
     // out wrapper
-    <div className="bg-[url('./images/project-images/react-weather-mobile-bg.png')] bg-cover  rounded-3xl mx-auto min-w-80 max-w-[22rem] md:max-w-[40rem] lg:max-w-[50rem] hover:bg-contain transition duration-700  ">
+    <div className="bg-[url('./images/project-images/react-weather-mobile-bg.png')] bg-cover rounded-3xl mx-auto min-w-72 max-w-[22rem] md:max-w-[40rem] lg:max-w-[50rem] hover:bg-contain transition duration-700 ">
       {/* inner wrapper  */}
       <div className="mx-auto space-y-2 px-4 py-6 bg-indigo-600 rounded-3xl bg-blue-600 backdrop-blur-xl bg-clip-padding bg-opacity-5 backdrop-flter md:backdrop-blur-3xl ">
         {/* innermost wrapper */}
