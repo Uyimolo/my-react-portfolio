@@ -17,7 +17,7 @@ const Header = ({ navActive, setNavActive }) => {
         alt="menu button"
         className={` ${
           navActive ? "rotate-90" : "rotate-0"
-        } cursor-pointer transition-transform duration-300 lg:hidden self-center`}
+        } cursor-pointer transition-transform duration-300 z-20 lg:hidden self-center`}
         onClick={() => {
           setNavActive(!navActive);
         }}
