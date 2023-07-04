@@ -7,7 +7,7 @@ import Nav from "./Nav";
 const Header = ({ navActive, setNavActive }) => {
   return (
     <header
-      className={`px-6 h-40 flex justify-between relative w-screen lg:pr-0 lg:items-center md:px-16 `}
+      className={`px-6 py-6 flex justify-between relative w-screen lg:pr-0 lg:items-center md:px-16 `}
     >
       <Logo />
       <Nav navActive={navActive} setNavActive={setNavActive} />

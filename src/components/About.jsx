@@ -7,7 +7,7 @@ const About = () => {
       <p className="text-gray-400 md:max-w-2xl lg:max-w-full lg:text-xl">
         I am Uyioghosa Justin Urhoghide (Uyi to friends and business
         associates). I am a front end web developer. I love creating websites
-        that are not just visually appealing but functional and interactive
+        that are not just visually appealing but functional and interactive.
       </p>
 
       <div className="pt-6">

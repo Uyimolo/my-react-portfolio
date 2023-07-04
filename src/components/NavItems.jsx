@@ -3,7 +3,7 @@ import { PropTypes } from "prop-types";
 
 const NavItems = ({ navItem, setNavActive }) => {
   return (
-    <div className="flex w-full items-center justify-center h-screen  lg:w-fit">
+    <div className="flex w-full items-center justify-center lg:w-fit">
      
       <Link
         onClick={() => setNavActive(false)}
