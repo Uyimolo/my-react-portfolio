@@ -10,9 +10,9 @@ import {
 } from "react-icons/si";
 
 const TechStack = () => {
-  const iconStyle = "text-indigo-600 text-[2em] md:text-[3.5em]";
+  const iconStyle = "text-indigo-600 text-[2em] md:text-[2.8em]";
   return (
-    <div className="flex justify-between px-6 md:px-16">
+    <div className="flex justify-center px-6 justify-between sm:space-x-6 md:max-w-3xl lg:justify-end lg:max-w-full lg:space-x-10 md:px-16">
       <SiFirebase className={iconStyle} />
       <SiHtml5 className={iconStyle} />
       <SiCss3 className={iconStyle} />
