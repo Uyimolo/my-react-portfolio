@@ -1,9 +1,6 @@
 import { PropTypes } from "prop-types";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
-import projectIcon from "../images/palette.svg";
-import aboutIcon from "../images/person.svg";
-import contactIcon from "../images/phone.svg";
 import NavItems from "./NavItems";
 
 const Nav = ({ navActive, setNavActive }) => {
@@ -69,7 +66,7 @@ const Nav = ({ navActive, setNavActive }) => {
       animate={navActive ? "open" : "closed"}
       variants={navVariants}
       initial={false}
-      className={`flex flex-col absolute left-0 right-0 mx-auto bg-slate-950 to-red-900 w-full h-screen border-b-4 border-indigo-950 lg:relative lg:flex-row lg:shadow-none lg:pr-16 lg:py-4 lg:h-auto lg:bg-transparent lg:rounded-l-none lg:w-fit lg:items-center lg:mx-0 lg:border-none `}
+      className={`flex flex-col absolute left-0 right-0 mx-auto bg-slate-950 to-red-900 w-full h-screen border-b-4 border-indigo-950 z-20 lg:relative lg:flex-row lg:shadow-none lg:pr-16 lg:py-4 lg:h-auto lg:bg-transparent lg:rounded-l-none lg:w-fit lg:items-center lg:mx-0 lg:border-none `}
     >
       {/* iterate over navItems and display each nav and icon */}
       {navItems.map((navItem, index) => (
