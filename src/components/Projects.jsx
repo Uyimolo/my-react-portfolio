@@ -38,7 +38,7 @@ const Projects = () => {
     },
   ];
   return (
-    <section className="w-full h-full px-6 flex flex-col space-y-12 md:px-16 md:space-y-20">
+    <section className="w-full h-full px-6 flex flex-col space-y-12 md:px-16 md:space-y-20 xl:px-28">
       <h2 className="text-2xl text-gray-200 lg:text-3xl">Projects</h2>
       {/* project */}
       {projectList.map((project, index) => (
