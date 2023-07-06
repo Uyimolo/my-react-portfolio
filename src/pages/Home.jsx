@@ -1,14 +1,14 @@
 import About from "../components/About";
-import Landing from "../components/Landing";
+import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import TechStack from "../components/TechStack";
 const Home = () => {
   return (
-    <main className=" flex flex-col space-y-20 pb-20">
-      <Landing />
+    <main className=" h-[800v pb-20">
+      <Hero />
       <TechStack />
       <About />
-      <Projects />
+      <Projects /> 
     </main>
   );
 };
