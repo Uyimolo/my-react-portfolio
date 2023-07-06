@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.reduce-motion * {
-    transition-duration: 0ms !important;
-    animation-duration: 0ms !important;
-  }
+body {
+  scroll-behavior: smooth;
+}

@@ -1,12 +1,27 @@
 import PropTypes from "prop-types";
 import MildCta from "./MildCta";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 const Project = ({ project }) => {
+  const targetRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0.15, 0.3], [0.1, 1]);
   // const mobile = project.mobileView
   return (
     // out wrapper
-    <div className="bg-[url('./images/project-images/react-weather-mobile-bg.png')] bg-cover rounded-3xl mx-auto min-w-72 max-w-[22rem] md:max-w-[40rem] lg:max-w-[50rem] hover:bg-contain transition duration-700 ">
+    <motion.div
+      style={{ opacity }}
+      ref={targetRef}
+      className="bg-[url('./images/project-images/react-weather-mobile-bg.png')] bg-cover rounded-3xl mx-auto min-w-72 max-w-[22rem] md:max-w-[40rem] lg:max-w-[50rem] transition   duration-700 "
+    >
       {/* inner wrapper  */}
-      <div className="mx-auto space-y-2 px-4 py-6 bg-indigo-600 rounded-3xl bg-blue-600 backdrop-blur-xl bg-clip-padding bg-opacity-5 backdrop-flter md:backdrop-blur-3xl ">
+      <div className="mx-auto space-y-2 px-4 py-6 rounded-3xl bg-blue-600 backdrop-blur-xl bg-clip-padding bg-opacity-5 backdrop-flter md:backdrop-blur-3xl hover:bg-yellow-800">
         {/* innermost wrapper */}
         <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4 md:items-start">
           {/* project image */}
@@ -26,9 +41,9 @@ const Project = ({ project }) => {
           </div>
         </div>
         {/* techs used */}
-         <div className="flex flex-col pt-4 justify-between md:items-center md:flex-row">
+        <div className="flex flex-col pt-4 justify-between md:items-center md:flex-row">
           <div className="flex items-center space-x-2">
-             {project.technologies.map((tech, index) => (
+            {project.technologies.map((tech, index) => (
               <p
                 key={index}
                 className="p-2 bg-indigo-600 rounded-3xl text-white"
@@ -37,16 +52,14 @@ const Project = ({ project }) => {
               </p>
             ))}
           </div>
-           {/* CTAs */}
+          {/* CTAs */}
           <div className="flex justify-between pt-6 md:pt-0 space-x-6">
-             <MildCta link={project.liveLink} text="View live" />
-             <MildCta linnk={project.github} text="Github" />
-           </div>
-         </div>
+            <MildCta link={project.liveLink} text="View live" />
+            <MildCta linnk={project.github} text="Github" />
+          </div>
+        </div>
       </div>
-    </div>
-
-   
+    </motion.div>
   );
 };
 
