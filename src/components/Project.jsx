@@ -11,17 +11,17 @@ const Project = ({ project }) => {
     offset: ["start end", "end start"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0.15, 0.3], [0.1, 1]);
+  // const opacity = useTransform(scrollYProgress, [0.15, 0.3], [0.1, 1]);
   // const mobile = project.mobileView
   return (
     // out wrapper
     <motion.div
-      style={{ opacity }}
-      ref={targetRef}
-      className="bg-[url('./images/project-images/react-weather-mobile-bg.png')] bg-cover rounded-3xl mx-auto min-w-72 max-w-[22rem] md:max-w-[40rem] lg:max-w-[50rem] transition   duration-700 "
+      // style={{ opacity }}
+      // ref={targetRef}
+      className="bg-[url('./images/project-images/react-weather-mobile-bg.png')] bg-cover rounded-3xl mx-auto min-w-72 max-w-[22rem] md:max-w-[40rem] lg:max-w-[50rem] transition duration-700 "
     >
       {/* inner wrapper  */}
-      <div className="mx-auto space-y-2 px-4 py-6 rounded-3xl bg-blue-600 backdrop-blur-xl bg-clip-padding bg-opacity-5 backdrop-flter md:backdrop-blur-3xl hover:bg-yellow-800">
+      <div className="mx-auto space-y-2 px-4 py-6 rounded-3xl bg-indigo-600 backdrop-blur-xl bg-clip-padding bg-opacity-5 backdrop-flter md:backdrop-blur-3xl hover:bg-indigo-950 hover:bg-opacity-20">
         {/* innermost wrapper */}
         <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4 md:items-start">
           {/* project image */}

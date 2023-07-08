@@ -1,14 +1,14 @@
 import About from "../components/About";
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
-import TechStack from "../components/TechStack";
+// import TechStack from "../components/TechStack";
 const Home = () => {
   return (
-    <main className=" h-[800v pb-20">
+    <main className=" pb-20">
       <Hero />
-      <TechStack />
+      {/* <TechStack /> */}
       <About />
-      <Projects /> 
+      <Projects />
     </main>
   );
 };

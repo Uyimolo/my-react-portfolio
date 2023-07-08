@@ -1,34 +1,33 @@
 import TypewriterHome from "./TypewriterHome";
 import MildCta from "./MildCta";
-import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+// import { useRef } from "react";
+import TechStack from "./TechStack";
 
 const Hero = () => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["end end", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
-  // const position = useTransform(scrollYProgress, (pos) => {
-  //   return pos === 1 ? "relative" : "fixed";
-  // });
   return (
     <motion.section
-      style={{ opacity, scale }}
-      ref={targetRef}
-      className="fixed top-32 h-screen left-0 right-0 flex flex-col space-y-6 px-6 pt-4 mb-12 md:px-16 xl:px-28"
+      initial={{ x: "-100%" }}
+      animate={{ x: 0 }}
+      transition={{ delay: 0.5 , duration : 0.5}}
+      className=" flex h-screen min-h-[45rem] max-h-[52rem] relative flex-col space-y-6 px-6 pt-40 md:pt-[25vh] md:min-h-screen md:px-16 lg:min-h-[50rem]  xl:px-28"
     >
       {/* TypewriterHome handles typewriter effect on homepage lol */}
-      <h1 className="text-[45px] leading-[1.1] text-gray-200 font-bold max-w-sm mt-6  mb-8 md:text-left md:text-5xl md:max-w-lg md:mb-8  lg:mt-12 md:max-w-lg md:mx-auto md:text-center lg:text-6xl ">
+      <h1 className="text-[48px]  leading-[1.1] text-gray-200 font-semibold max-w-sm mt-6  mb-8 md:text-7xl md:max-w-lg md:mb-8 md:max-w-lg md:mx-auto md:text-center  lg:text-5xl  lg:mt-12">
         empowering businesses with <TypewriterHome />
         solutions.
       </h1>
       <div className="md:mx-auto">
         <MildCta text="See works" link="projects" />
       </div>
+
+      <motion.div
+      initial={{opacity: 0, scale:1}}
+      animate={{opacity:1, scale:[1,1.5,1]}}
+      transition={{duration:1, delay : 1}}
+      className="absolute w-full left-0 right-0 bottom-16 md: mx-auto">
+        <TechStack />
+      </motion.div>
     </motion.section>
   );
 };

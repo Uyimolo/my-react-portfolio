@@ -4,10 +4,15 @@ import { PropTypes } from "prop-types";
 import Logo from "./Logo";
 import Nav from "./Nav";
 
+import { motion } from "framer-motion";
+
 const Header = ({ navActive, setNavActive }) => {
   return (
-    <header
-      className={`px-6 py-10 flex justify-between relative w-full lg:pr-0 lg:items-center md:px-16 xl:px-28`}
+    <motion.header
+    initial={{y : "-30%"}}
+    animate={{y:0}}
+    transition={{duration:0.5}}
+      className={`px-6 bg-slate-900 z-20 shadow-xl fixed top-0 left-0 right-0 mx-auto w-full py-6 flex justify-between w-full lg:pr-0 lg:items-center md:px-16 xl:px-28`}
     >
       <Logo />
       <Nav navActive={navActive} setNavActive={setNavActive} />
@@ -22,7 +27,7 @@ const Header = ({ navActive, setNavActive }) => {
           setNavActive(!navActive);
         }}
       />
-    </header>
+    </motion.header>
   );
 };
 
