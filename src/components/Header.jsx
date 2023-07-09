@@ -14,9 +14,9 @@ const Header = ({ navActive, setNavActive }) => {
     end: {
       y: 0,
       transition: {
-        type: "spring",
+        // type: "spring",
         delay: 0.2,
-        duration: 1,
+        duration: .5,
         stiffness: 200,
         dampness: 50
       },
@@ -29,7 +29,7 @@ const Header = ({ navActive, setNavActive }) => {
       initial="start"
       animate="end"
       
-      className={`px-6 bg-slate-900 z-20 shadow-xl fixed top-0 left-0 right-0 mx-auto w-full py-6 flex justify-between w-full lg:pr-0 lg:items-center md:px-16 xl:px-28`}
+      className={`px-6 bg-slate-900 z-20 fixed top-0 left-0 right-0 mx-auto w-full py-4 flex justify-between w-full lg:pr-0 lg:items-center md:px-16 xl:px-28`}
     >
       <Logo />
       <Nav navActive={navActive} setNavActive={setNavActive} />

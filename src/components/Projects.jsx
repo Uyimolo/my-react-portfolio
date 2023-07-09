@@ -4,6 +4,7 @@ import todoDesktop from "../images/project-images/todo-app-desktop-bg.jpg";
 
 import Project from "./Project";
 import MildCta from "./MildCta";
+import ButtonCta from "./ButtonCta";
 
 // import { motion, useScroll, useTransform } from "framer-motion";
 // import { useRef } from "react";
@@ -46,9 +47,9 @@ const Projects = () => {
     <section className="w-full h-full px-6  flex flex-col space-y-12 md:px-16 md:space-y-20 xl:px-28">
       <h2
         
-        className="text-2xl text-gray-200 md:text-center lg:text-3xl "
+        className="text-3xl text-gray-200 md:text-center lg:text-5xl "
       >
-        Projects
+       Code Playground
       </h2>
       {/* project */}
       <div className="flex flex-col space-y-20 ">
@@ -57,9 +58,8 @@ const Projects = () => {
         ))}
       </div>
 
-      <div className="">
-        <MildCta text="See more" link="projects" />
-      </div>
+<ButtonCta text="See more" link="projects" />
+      
     </section>
   );
 };
