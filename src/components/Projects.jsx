@@ -3,19 +3,13 @@ import weatherDesktop from "../images/project-images/react-weather-desktop-bg.pn
 import todoDesktop from "../images/project-images/todo-app-desktop-bg.jpg";
 
 import Project from "./Project";
+import MildCta from "./MildCta";
+import ButtonCta from "./ButtonCta";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+// import { motion, useScroll, useTransform } from "framer-motion";
+// import { useRef } from "react";
 
 const Projects = () => {
-  const targetRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0.1, 0.35], [0, 1]);
 
   const projectList = [
     {
@@ -50,21 +44,23 @@ const Projects = () => {
     },
   ];
   return (
-    <motion.section className="w-full h-full px-6  flex flex-col space-y-12 md:px-16 md:space-y-20 xl:px-28">
-      <motion.h2
-        style={{ opacity }}
-        ref={targetRef}
-        className="text-2xl text-gray-200 md:text-center lg:text-3xl "
+    <section className="w-full h-full px-6  flex flex-col space-y-12 md:px-16 md:space-y-20 xl:px-28">
+      <h2
+        
+        className="text-3xl text-gray-200 md:text-center lg:text-5xl "
       >
-        Projects
-      </motion.h2>
+       Code Playground
+      </h2>
       {/* project */}
       <div className="flex flex-col space-y-20 ">
         {projectList.map((project, index) => (
           <Project key={index} project={project} />
         ))}
       </div>
-    </motion.section>
+
+<ButtonCta text="See more" link="projects" />
+      
+    </section>
   );
 };
 

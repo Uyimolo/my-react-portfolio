@@ -16,7 +16,7 @@ const RootLayout = () => {
     <div className="bg-slate-900">
       <div
         ref={bodyRef}
-        className={`bg-slate-900  overflow-hidden ${
+        className={`overflow-hidden ${
           navActive
             ? "w-screen h-screen"
             : "w-full min-h-screen xl:max-w-[1500px] xl:mx-auto"
@@ -28,7 +28,7 @@ const RootLayout = () => {
           <Outlet />
         </>
 
-        <footer className=" px-6 py-6 border-t border-gray-700 space-x-6 flex justify-between md:px-16 ">
+        <footer className=" px-6 py-6 border-t border-gray-700 space-x-6 flex justify-between md:px-16 xl:px-28">
           <Logo />
           <div className="flex flex-wrap text-gray-300 items-center md:max-w-xl  lg:text-lg">
             <Link to="https://twitter.com/uyimolo247" className="pr-2">

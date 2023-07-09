@@ -1,5 +1,5 @@
-import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
+// import { useScroll, useTransform, motion } from "framer-motion";
+// import { useRef } from "react";
 import {
   SiFirebase,
   SiHtml5,
@@ -9,36 +9,47 @@ import {
   SiGithub,
   SiJavascript,
 } from "react-icons/si";
+import { motion } from "framer-motion";
 
 const TechStack = () => {
-  const targetRef = useRef();
+  const childVariant = {
+    start: {
+      scale: 0.5,
+      opacity: 0,
+    },
+    end: {
+      scale: [1,2,2.5,2, 1],
+      opacity: [0, 1],
+    },
+  };
 
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0.1, 0.25, 0.4], [0, 0.3, 1]); 
-  // const position = useTransform(scrollYProgress, (pos) => {
-  //   return pos === 0.5 ? "relative" : "fixed";
-  // });
-  
-  
-  // const translateY = useTransform(scrollYProgress, [0.2, 0.5], [0, 1])
-  const iconStyle = "text-indigo-600  text-[2em] md:text-[2.8em]";
+  const iconStyle = "text-indigo-600 text-[2em] md:text-[2.8em]";
   return (
-    <motion.div
-      style={{ opacity}} 
-      className="sticky top-6 left-0 right-0 top-10 flex mt-[37rem] w-full px-6 justify-between justify-self-end sm:space-x-6 md:max-w-3xl lg:justify-end md:w-fit md:mx-auto lg:space-x-10 md:px-16 "
-    >
-      <SiFirebase className={iconStyle} />
-      <SiHtml5 className={iconStyle} />
-      <SiCss3 className={iconStyle} />
-      <SiReact className={iconStyle} />
-      <SiFramer className={iconStyle} />
-      <SiGithub className={iconStyle} />
-      <SiJavascript className={iconStyle} />
-    </motion.div>
+    <div className="px-6 md:px-16">
+      <div className="flex w-full justify-between sm:space-x-6 md:max-w-3xl md:mx-auto lg:space-x-10">
+        <motion.div className="" variants={childVariant}>
+          <SiFirebase className={iconStyle} />
+        </motion.div>
+        <motion.div variants={childVariant}>
+          <SiHtml5 className={iconStyle} />
+        </motion.div>
+        <motion.div variants={childVariant}>
+          <SiCss3 className={iconStyle} />
+        </motion.div>
+        <motion.div variants={childVariant}>
+          <SiReact className={iconStyle} />
+        </motion.div>
+        <motion.div variants={childVariant}>
+          <SiFramer className={iconStyle} />
+        </motion.div>
+        <motion.div variants={childVariant}>
+          <SiJavascript className={iconStyle} />
+        </motion.div>
+        <motion.div variants={childVariant}>
+          <SiGithub className={iconStyle} />
+        </motion.div>
+      </div>
+    </div>
   );
 };
 
