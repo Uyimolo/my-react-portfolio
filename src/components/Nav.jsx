@@ -20,8 +20,8 @@ const Nav = ({ navActive, setNavActive }) => {
         open: {
           y: 0,
           transition: {
-            duration: 0.5,
             when: "beforeChildren",
+            duration: 0.3,
             staggerChildren: 0.2,
             // type: "spring"
           },
@@ -29,9 +29,7 @@ const Nav = ({ navActive, setNavActive }) => {
         closed: {
           y: "-110%",
           transition: {
-            duration: 0.5,
-            when: "afterChildren",
-            staggerChildren: 0.2,
+            duration:0.3
           },
         },
       };
@@ -54,12 +52,16 @@ const Nav = ({ navActive, setNavActive }) => {
         },
 
         closed: {
-          opacity: [1, 0.8, 0.5, 0.3, 0.1, 0],
+          opacity: 0
           // x: "100%"
         },
       };
 
-  const navItems = ["Project arena", "Get to know me", "Reach me"];
+  const navItems = [
+    { text: "Project arena", link: "projects" },
+    { text: "Get to know me", link: "about" },
+    { text: "Reach me", link: "contact" },
+  ];
 
   return (
     <motion.nav

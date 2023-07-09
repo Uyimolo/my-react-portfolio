@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { motion } from "framer-motion";
 
-const NavItems = ({ navItem, setNavActive }) => {
+const NavItems = ({ navItem, setNavActive,  }) => {
   return (
     <motion.div
       initial={{ scale: 1, color: "white" }}
@@ -12,9 +12,10 @@ const NavItems = ({ navItem, setNavActive }) => {
     >
       <Link
         onClick={() => setNavActive(false)}
+        to={navItem.link}
         className="text-gray-100 w-fit text-3xl transition-all duration-900 ease-in-out  lg:text-lg lg:text-gray-400 lg:hover:bg-transparent lg:my-0 lg:hover:border-b-2 border-indigo-600 lg:hover:text-indigo-600 hover:underline lg:w-fit"
       >
-        {navItem}
+        {navItem.text}
       </Link>
     </motion.div>
   );
@@ -22,8 +23,8 @@ const NavItems = ({ navItem, setNavActive }) => {
 
 NavItems.propTypes = {
   navItem: PropTypes.shape({
-    icon: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
   }),
   setNavActive: PropTypes.func.isRequired,
 };
