@@ -7,11 +7,28 @@ import Nav from "./Nav";
 import { motion } from "framer-motion";
 
 const Header = ({ navActive, setNavActive }) => {
+  const containerVariant = {
+    start: {
+      y: "-100%",
+    },
+    end: {
+      y: 0,
+      transition: {
+        type: "spring",
+        delay: 0.2,
+        duration: 1,
+        stiffness: 200,
+        dampness: 50
+      },
+    },
+  };
+
   return (
     <motion.header
-    initial={{y : "-30%"}}
-    animate={{y:0}}
-    transition={{duration:0.5}}
+      variants={containerVariant}
+      initial="start"
+      animate="end"
+      
       className={`px-6 bg-slate-900 z-20 shadow-xl fixed top-0 left-0 right-0 mx-auto w-full py-6 flex justify-between w-full lg:pr-0 lg:items-center md:px-16 xl:px-28`}
     >
       <Logo />

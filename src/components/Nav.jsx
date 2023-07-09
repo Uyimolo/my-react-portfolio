@@ -23,6 +23,7 @@ const Nav = ({ navActive, setNavActive }) => {
             duration: 0.5,
             when: "beforeChildren",
             staggerChildren: 0.2,
+            // type: "spring"
           },
         },
         closed: {

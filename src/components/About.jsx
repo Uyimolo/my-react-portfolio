@@ -1,28 +1,9 @@
 import MildCta from "./MildCta";
-import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
 
 const About = () => {
-  const targetRef = useRef();
 
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  const opacity = useTransform(
-    scrollYProgress,
-    [0.1, 0.2, 0.3, 0.35],
-    [0, 0.0, 0.1, 1]
-  );
-  const x = useTransform(
-    scrollYProgress,
-    [0.1, 0.2, 0.4],
-    ["-80%", "-55%", "0%"]
-  );
   return (
-    <motion.section
-      // style={{ x }}
+    <section
       className="px-6 flex flex-col space-y-6 mt-20 pb-12 md:px-16  xl:px-28"
     >
       <h2 className="text-4xl text-gray-200 md:text-center lg:text-5xl ">
@@ -37,7 +18,7 @@ const About = () => {
       <div className="pt-6 md:mx-auto">
         <MildCta text="Read more" />
       </div>
-    </motion.section>
+    </section>
   );
 };
 

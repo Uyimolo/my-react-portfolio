@@ -3,6 +3,7 @@ import weatherDesktop from "../images/project-images/react-weather-desktop-bg.pn
 import todoDesktop from "../images/project-images/todo-app-desktop-bg.jpg";
 
 import Project from "./Project";
+import MildCta from "./MildCta";
 
 // import { motion, useScroll, useTransform } from "framer-motion";
 // import { useRef } from "react";
@@ -54,6 +55,10 @@ const Projects = () => {
         {projectList.map((project, index) => (
           <Project key={index} project={project} />
         ))}
+      </div>
+
+      <div className="">
+        <MildCta text="See more" link="projects" />
       </div>
     </section>
   );
