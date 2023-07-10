@@ -24,10 +24,10 @@ const Hero = () => {
       variants={containerVariant}
       initial="start"
       animate="end"
-      className=" flex h-screen min-h-[45rem] max-h-[52rem] relative flex-col space-y-6 px-6 pt-40 md:pt-[25vh] md:min-h-screen md:px-16 lg:min-h-[50rem] xl:pt-32 xl:px-28"
+      className=" flex h-screen min-h-[45rem] max-h-[52rem] relative flex-col space-y-6 px-6 pt-40 md:pt-[25vh] md:min-h-screen md:px-16 lg:min-h-[50rem] xl:pt-24 xl:px-28"
     >
       {/* TypewriterHome handles typewriter effect on homepage lol */}
-      <h1 className="text-[48px]  leading-[1.1] text-gray-200 font-semibold max-w-sm mt-6  mb-8 md:text-7xl md:max-w-lg md:mb-8 md:max-w-lg md:mx-auto md:text-center  lg:text-5xl  lg:mt-12">
+      <h1 className="text-[48px]  leading-[1.1] text-gray-200 font-semibold max-w-sm mt-6  mb-8 md:text-7xl md:max-w-lg md:mb-8 md:max-w-lg md:mx-auto md:text-center  lg:text-6xl  lg:mt-12">
         empowering businesses with <TypewriterHome />
         solutions.
       </h1>

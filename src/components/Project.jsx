@@ -41,7 +41,7 @@ const Project = ({ project }) => {
           </div>
         </div>
         {/* techs used */}
-        <div className="flex flex-col pt-4 justify-between md:items-center md:flex-row">
+        <div className="flex flex-col pt-4 justify-between md:items-center md:flex-row-reverse">
           <div className="flex items-center space-x-2">
             {project.technologies.map((tech, index) => (
               <p
