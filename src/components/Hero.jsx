@@ -12,9 +12,9 @@ const Hero = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
-        delay: 0.7,
+        delay: 0.9,
         when: "beforeChildren",
-        staggerChildren: 0.5,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -36,7 +36,7 @@ const Hero = () => {
 
       <motion.div
         // variants={childVariant}
-        className="absolute w-full left-0 right-0 bottom-16 md:bottom-28 md:mx-auto xl:bottom-44"
+        className="absolute w-full left-0 right-0 bottom-24 md:bottom-28 md:mx-auto xl:bottom-44"
       >
         <TechStack />
       </motion.div>

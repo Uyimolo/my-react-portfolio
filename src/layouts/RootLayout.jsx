@@ -1,5 +1,5 @@
-import { Outlet } from "react-router";
-import { useRef, useState } from "react";
+import { Outlet, useLocation } from "react-router";
+import { useRef, useState, useEffect } from "react";
 
 import Header from "../components/Header";
 import Logo from "../components/Logo";
@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 const RootLayout = () => {
   const [navActive, setNavActive] = useState(false);
   const bodyRef = useRef();
-  //   useEffect(() => {
-  //     if (navActive) {
-  //       bodyRef.current.style.overflow = "hidden";
-  //     }
-  //   });
+  
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behaviour: "smooth" });
+  }, [location]);
   return (
     <div className="bg-slate-900">
       <div
