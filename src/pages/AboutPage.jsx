@@ -1,31 +1,35 @@
-import { Link } from "react-router-dom";
-
+import { useScroll, motion, useSpring } from "framer-motion";
+import aboutImage from "../images/about-image.svg";
+import AboutPageText from "../components/AboutPageText";
 const AboutPage = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress);
+
   return (
-    <main className="pt-32 min-h-screen">
-      <section className="flex flex-col space-y-6 px-6 md:px-16 xl:px-28">
-        <h2 className="text-3xl text-gray-200 md:text-center lg:text-5xl ">
+    <main className="pt-32 pb-20 min-h-screen">
+      <motion.div
+        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 origin-left ml-0 h-2 bg-purple-600 z-30"
+      ></motion.div>
+
+      <motion.section
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        transition={{ delay: 0.1, type: "spring", stiffness: 100 }}
+        className="flex flex-col space-y-6 px-6 md:mt-6 md:px-16 xl:px-28"
+      >
+        <h2 className="text-3xl text-gray-200 lg:text-5xl ">
           A Little About Me (and My Code)
         </h2>
-        <div className="flex flex-col space-y-4">
-          <p className="text-gray-400 md:max-w-2xl md:text-lg lg:max-w-3xl lg:text-xl ">
-            {`Hey there, I'm Uyi, your friendly neighborhood front-end web developer! I've got a knack for creating websites that not only look cool but work like a charm. `}
-          </p>
-
-          <p className="text-gray-400 md:max-w-2xl   md:text-lg lg:max-w-3xl lg:text-xl ">
-            {`I've earned certifications in`}{" "}
-            <Link to="https://www.freecodecamp.org/certification/Uyimolo/responsive-web-design">Responsive Web Design</Link> and{" "}
-            <Link to="https://www.freecodecamp.org/certification/Uyimolo/javascript-algorithms-and-data-structures">JavaScript Algorithms and Data Structures</Link> from
-            freeCodeCamp, and completed the{" "}
-            <Link to="">Zuri/ingressive for good training program</Link> to
-            enhance my skills and excel in the field.
-          </p>
-
-          <p className="text-gray-400 md:max-w-2xlmd:text-lg lg:max-w-3xl lg:text-xl ">
-            {`In my toolkit, I have React for dynamic interfaces, Tailwind CSS for stylish styling, Framer Motion for captivating animations, Redux for robust state management, and proficiency in HTML, CSS, and vanilla JavaScript—the essential building blocks of the web.`}
-          </p>
+        <div className="flex flex-col justify-between items-center space-y-10 lg:flex-row-reverse lg:space-y-0">
+          {/* about image */}
+          <div className="w-80 mx-auto md:w-[25rem] lg:w-1/2 lg:max-w-[25rem]">
+            <img src={aboutImage} alt="" className="w-full" />
+          </div>
+          {/* about text */}
+          <AboutPageText />
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 };

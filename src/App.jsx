@@ -8,7 +8,6 @@ import RootLayout from "./layouts/RootLayout";
 
 import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
-
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(

@@ -29,7 +29,7 @@ const Nav = ({ navActive, setNavActive }) => {
         closed: {
           y: "-110%",
           transition: {
-            duration:0.3
+            duration: 0.3,
           },
         },
       };
@@ -52,12 +52,13 @@ const Nav = ({ navActive, setNavActive }) => {
         },
 
         closed: {
-          opacity: 0
+          opacity: 0,
           // x: "100%"
         },
       };
 
   const navItems = [
+    { text: "Back home", link: "/" },
     { text: "Project arena", link: "projects" },
     { text: "Get to know me", link: "about" },
     { text: "Reach me", link: "contact" },
