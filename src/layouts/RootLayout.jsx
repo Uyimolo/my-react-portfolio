@@ -7,15 +7,24 @@ import { Link } from "react-router-dom";
 const RootLayout = () => {
   const [navActive, setNavActive] = useState(false);
   const bodyRef = useRef();
-  
+
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(-100);
+
   const location = useLocation();
+  const handleMouseMove = (event) => {
+    setX(event.clientX + 60);
+    setY(event.clientY + 60);
+  };
   useEffect(() => {
     window.scrollTo({ top: 0, behaviour: "smooth" });
   }, [location]);
+
   return (
     <div className="bg-slate-900">
       <div
         ref={bodyRef}
+        onMouseMove={handleMouseMove}
         className={`overflow-hidden ${
           navActive
             ? "w-screen h-screen"
@@ -23,7 +32,18 @@ const RootLayout = () => {
         }`}
       >
         <Header navActive={navActive} setNavActive={setNavActive} />
-
+        <div
+          className="z-30"
+          style={{
+            position: "fixed",
+            top: y,
+            left: x,
+            width: 100,
+            height: 100,
+          }}
+        > 
+        <p className="text-white">Justindavid</p>
+        </div>
         <>
           <Outlet />
         </>
