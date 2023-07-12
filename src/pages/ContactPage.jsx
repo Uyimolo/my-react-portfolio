@@ -1,5 +1,6 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { send } from "emailjs-com";
 
 const ContactPage = () => {
   const { scrollYProgress } = useScroll();
@@ -55,7 +56,15 @@ const ContactPage = () => {
         className="fixed top-0 left-0 right-0 origin-left ml-0 h-2 bg-purple-600 z-30"
       ></motion.div>
 
-      <div className="flex flex-col px-6 md:px-16 xl:px-28">
+      <div className="flex flex-col space-y-12 px-6 md:px-16 xl:px-28">
+        <div className="flex flex-col space-y-2">
+        <h2 className="text-3xl text-gray-200 lg:text-5xl ">
+            Send me an email
+        </h2>
+        <p className="text-gray-400 md:max-w-2xl md:text-lg lg:max-w-3xl lg:text-xl ">
+            {`(I'll love to here from you)`}
+          </p>
+        </div>
         <motion.form
           ref={formRef}
           onSubmit={onSubmit}
