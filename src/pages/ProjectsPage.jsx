@@ -53,8 +53,8 @@ const ProjectsPage = () => {
         className="px-6 flex flex-col space-y-12 md:px-16 xl:px-28"
       >
         <div className="flex flex-col space-y-2">
-          <h2 className="text-3xl text-gray-200 lg:text-5xl ">Project Arena</h2>
-          <p className="text-gray-400 md:max-w-2xl md:text-lg lg:max-w-3xl lg:text-xl ">
+          <h1 className="text-3xl text-gray-200 lg:text-5xl ">Project Arena</h1>
+          <p className="text-gray-400 md:max-w-2xl lg:max-w-3xl lg:text-lg ">
             (Where great code meets great design)
           </p>
         </div>

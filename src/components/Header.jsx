@@ -29,7 +29,7 @@ const Header = ({ navActive, setNavActive }) => {
       initial="start"
       animate="end"
       
-      className={`px-6 bg-slate-900 z-10 fixed top-0 left-0 right-0 mx-auto w-full py-4 flex justify-between w-full lg:pr-0 lg:items-center md:px-16 xl:px-28`}
+      className={`px-6 bg-slate-950 z-10 fixed top-0 left-0 right-0 mx-auto w-full py-4 flex justify-between w-full lg:pr-0 lg:items-center md:px-16 xl:px-28`}
     >
       <Logo />
       <Nav navActive={navActive} setNavActive={setNavActive} />

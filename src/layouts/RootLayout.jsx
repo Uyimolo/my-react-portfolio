@@ -21,7 +21,7 @@ const RootLayout = () => {
   }, [location]);
 
   return (
-    <div className="bg-slate-900">
+    <div className="bg-slate-950">
       <div
         ref={bodyRef}
         onMouseMove={handleMouseMove}

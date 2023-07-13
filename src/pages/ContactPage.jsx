@@ -99,10 +99,10 @@ const ContactPage = () => {
 
       <div className="flex flex-col space-y-12 px-6 md:px-16 xl:px-28">
         <div className="flex flex-col space-y-2">
-          <h2 className="text-3xl text-gray-200 lg:text-5xl ">
+          <h1 className="text-3xl text-gray-200 lg:text-5xl ">
             Send me an email
-          </h2>
-          <p className="text-gray-400 md:max-w-2xl md:text-lg lg:max-w-3xl lg:text-xl ">
+          </h1>
+          <p className="text-gray-400 md:max-w-2xl lg:max-w-3xl lg:text-lg ">
             {`(I'll love to here from you)`}
           </p>
         </div>
@@ -115,7 +115,7 @@ const ContactPage = () => {
           <div className="flex flex-col space-y-2 relative">
             <label
               htmlFor="firstName"
-              className="absolute top-[-5px] bg-slate-900 text-gray-300 px-2 left-4 rounded-md"
+              className="absolute top-[-5px] bg-slate-950 text-gray-300 px-2 left-4 rounded-md"
             >
               First Name
             </label>
@@ -133,7 +133,7 @@ const ContactPage = () => {
           <div className="flex flex-col space-y-2 relative">
             <label
               htmlFor="LastName"
-              className="absolute top-[-5px] bg-slate-900 text-gray-300 px-2 left-4 rounded-md"
+              className="absolute top-[-5px] bg-slate-950 text-gray-300 px-2 left-4 rounded-md"
             >
               Last Name
             </label>
@@ -151,7 +151,7 @@ const ContactPage = () => {
           <div className="flex flex-col space-y-2 relative">
             <label
               htmlFor="LastName"
-              className="absolute top-[-5px] bg-slate-900 text-gray-300 px-2 left-4 rounded-md"
+              className="absolute top-[-5px] bg-slate-950 text-gray-300 px-2 left-4 rounded-md"
             >
               Your Email
             </label>
@@ -169,7 +169,7 @@ const ContactPage = () => {
           <div className="flex flex-col space-y-2 relative">
             <label
               htmlFor="Message"
-              className="absolute top-[-5px] bg-slate-900 text-gray-300 px-2 left-4 rounded-md"
+              className="absolute top-[-5px] bg-slate-950 text-gray-300 px-2 left-4 rounded-md"
             >
               Type in message
             </label>

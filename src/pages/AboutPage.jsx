@@ -18,9 +18,9 @@ const AboutPage = () => {
         transition={{ delay: 0.1, type: "spring", stiffness: 100 }}
         className="flex flex-col space-y-6 px-6 md:mt-6 md:px-16 xl:px-28"
       >
-        <h2 className="text-3xl text-gray-200 lg:text-5xl ">
+        <h1 className="text-3xl text-gray-200 lg:text-5xl ">
           A Little About Me (and My Code)
-        </h2>
+        </h1>
         <div className="flex flex-col justify-between items-center space-y-10 lg:flex-row-reverse lg:space-y-0">
           {/* about image */}
           <div className="w-80 mx-auto md:w-[25rem] lg:w-1/2 lg:max-w-[25rem]">
