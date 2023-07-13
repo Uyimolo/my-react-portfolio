@@ -8,12 +8,16 @@ const ContactPage = () => {
   const formRef = useRef(null);
 
   const [error, setError] = useState("");
+  const [emailSentStatus, setEmailSentStatus] = useState("");
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     message: "",
     email: "",
   });
+
+  const env = import.meta.env;
 
   const validateForm = () => {
     if (
@@ -33,21 +37,40 @@ const ContactPage = () => {
     }
   };
 
+  const sendFormData = async () => {
+    const response = await send(
+      env.VITE_SERVICE_ID,
+      "portfolio-template",
+      formData,
+      env.VITE_PUBLIC_KEY
+    );
+    if (response.text === "OK") {
+      setEmailSentStatus("Email sent");
+      setFormData({ firstName: "", lastName: "", message: "", email: "" });
+    } else {
+      setEmailSentStatus("Email not sent, try again");
+      console.log("not Sent");
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setEmailSentStatus("");
+    }, [3000]);
+  }, [emailSentStatus]);
+
   const onSubmit = (e) => {
     e.preventDefault();
     validateForm();
-    if (error === "") {
+    if (!error) {
       // send form to email.js
+      sendFormData();
     }
   };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
 
   return (
     <main className="pt-32 pb-20 min-h-screen">
@@ -58,10 +81,10 @@ const ContactPage = () => {
 
       <div className="flex flex-col space-y-12 px-6 md:px-16 xl:px-28">
         <div className="flex flex-col space-y-2">
-        <h2 className="text-3xl text-gray-200 lg:text-5xl ">
+          <h2 className="text-3xl text-gray-200 lg:text-5xl ">
             Send me an email
-        </h2>
-        <p className="text-gray-400 md:max-w-2xl md:text-lg lg:max-w-3xl lg:text-xl ">
+          </h2>
+          <p className="text-gray-400 md:max-w-2xl md:text-lg lg:max-w-3xl lg:text-xl ">
             {`(I'll love to here from you)`}
           </p>
         </div>
@@ -155,6 +178,8 @@ const ContactPage = () => {
               Send Email
             </button>
           </motion.div>
+
+          <p className="text-white w-full">{emailSentStatus}</p>
         </motion.form>
       </div>
     </main>
