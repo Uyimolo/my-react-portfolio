@@ -7,7 +7,8 @@ const ContactPage = () => {
   const scaleX = useSpring(scrollYProgress);
   const formRef = useRef(null);
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
   const [emailSentStatus, setEmailSentStatus] = useState("");
 
   const [formData, setFormData] = useState({
@@ -26,14 +27,18 @@ const ContactPage = () => {
       formData.message === "" ||
       formData.email === ""
     ) {
-      setError("Please fill in all fields");
+      setError(true);
+      setErrorMessage("Please fill in all fields");
     } else if (
       formData.firstName.trim().includes(" ") ||
       formData.lastName.trim().includes(" ")
     ) {
-      setError("First Name and Last Name fields should not include spaces");
+      setError(true);
+      setErrorMessage(
+        "First Name and Last Name fields should not include spaces"
+      );
     } else {
-      setError("");
+      setError(false);
     }
   };
 
@@ -52,19 +57,32 @@ const ContactPage = () => {
       console.log("not Sent");
     }
   };
-
+  const emailStatusTimer = setTimeout(() => {
+    setEmailSentStatus("");
+  }, [3000]);
   useEffect(() => {
-    setTimeout(() => {
-      setEmailSentStatus("");
-    }, [3000]);
-  }, [emailSentStatus]);
+    emailStatusTimer
+    return () => clearTimeout(emailStatusTimer);
+  }, [emailSentStatus, emailStatusTimer]);
+
+  const errorTimer = setTimeout(() => {
+    setErrorMessage("");
+  }, [3000]);
+  useEffect(() => {
+    errorTimer
+    return () => clearTimeout(errorTimer);
+  }, [error, errorTimer]);
 
   const onSubmit = (e) => {
     e.preventDefault();
     validateForm();
-    if (!error) {
-      // send form to email.js
+    if (error === false) {
+      // send form to emailjs
+      console.log("form sent")
       sendFormData();
+    }
+    else {
+      console.log("form not sent")
     }
   };
 
@@ -180,6 +198,7 @@ const ContactPage = () => {
           </motion.div>
 
           <p className="text-white w-full">{emailSentStatus}</p>
+          <p className="text-white w-full">{errorMessage}</p>
         </motion.form>
       </div>
     </main>
