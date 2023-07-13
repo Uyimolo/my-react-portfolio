@@ -1,6 +1,7 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { send } from "emailjs-com";
+import FormGroup from "../components/FormGroup";
 
 const ContactPage = () => {
   const { scrollYProgress } = useScroll();
@@ -39,7 +40,11 @@ const ContactPage = () => {
       );
     } else {
       setError(false);
+      sendFormData();
     }
+    setTimeout(() => {
+      setErrorMessage("");
+    }, [2000]);
   };
 
   const sendFormData = async () => {
@@ -56,34 +61,14 @@ const ContactPage = () => {
       setEmailSentStatus("Email not sent, try again");
       console.log("not Sent");
     }
+    setTimeout(() => {
+      setEmailSentStatus("");
+    }, [2000]);
   };
-  const emailStatusTimer = setTimeout(() => {
-    setEmailSentStatus("");
-  }, [3000]);
-  useEffect(() => {
-    emailStatusTimer
-    return () => clearTimeout(emailStatusTimer);
-  }, [emailSentStatus, emailStatusTimer]);
-
-  const errorTimer = setTimeout(() => {
-    setErrorMessage("");
-  }, [3000]);
-  useEffect(() => {
-    errorTimer
-    return () => clearTimeout(errorTimer);
-  }, [error, errorTimer]);
 
   const onSubmit = (e) => {
     e.preventDefault();
     validateForm();
-    if (error === false) {
-      // send form to emailjs
-      console.log("form sent")
-      sendFormData();
-    }
-    else {
-      console.log("form not sent")
-    }
   };
 
   const handleChange = (e) => {
@@ -112,59 +97,35 @@ const ContactPage = () => {
           action="post"
           className="w-full flex flex-col space-y-6 max-w-sm px-4 py-12 border-2 border-gray-300 rounded-xl shadow-indigo-600 mx-auto hover:shadow-lg hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4 md:px-6 "
         >
-          <div className="flex flex-col space-y-2 relative">
-            <label
-              htmlFor="firstName"
-              className="absolute top-[-5px] bg-slate-950 text-gray-300 px-2 left-4 rounded-md"
-            >
-              First Name
-            </label>
-            <input
-              type="text"
-              name="firstName"
-              id="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              className="bg-transparent border-2 rounded h-12 text-gray-300 px-2 placeholder:text-gray-600 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4"
-              placeholder="Type in first name..."
-            />
-          </div>
+          <FormGroup
+            type="text"
+            label="First name"
+            name="firstName"
+            placeholder="Type in first name..."
+            value={formData.firstName}
+            formData={formData}
+            setFormData={setFormData}
+          />
 
-          <div className="flex flex-col space-y-2 relative">
-            <label
-              htmlFor="LastName"
-              className="absolute top-[-5px] bg-slate-950 text-gray-300 px-2 left-4 rounded-md"
-            >
-              Last Name
-            </label>
-            <input
-              type="text"
-              name="lastName"
-              id="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              className="bg-transparent border-2 rounded h-12 text-gray-400 px-2 placeholder:text-gray-600 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4"
-              placeholder="Type in last name..."
-            />
-          </div>
+          <FormGroup
+            type="text"
+            label="Last name"
+            name="lastName"
+            placeholder="Type in last name..."
+            value={formData.lastName}
+            formData={formData}
+            setFormData={setFormData}
+          />
 
-          <div className="flex flex-col space-y-2 relative">
-            <label
-              htmlFor="LastName"
-              className="absolute top-[-5px] bg-slate-950 text-gray-300 px-2 left-4 rounded-md"
-            >
-              Your Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="bg-transparent border-2 rounded h-12 text-gray-400 px-2 placeholder:text-gray-600 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4"
-              placeholder="Type in your email..."
-            />
-          </div>
+          <FormGroup
+            type="email"
+            label="email"
+            name="email"
+            placeholder="Type in email..."
+            value={formData.email}
+            formData={formData}
+            setFormData={setFormData}
+          />
 
           <div className="flex flex-col space-y-2 relative">
             <label
@@ -197,8 +158,10 @@ const ContactPage = () => {
             </button>
           </motion.div>
 
-          <p className="text-white w-full">{emailSentStatus}</p>
-          <p className="text-white w-full">{errorMessage}</p>
+          <p className="text-white w-full lg:text-lg">{emailSentStatus}</p>
+          {error && (
+            <p className="text-white w-full lg-text-lg">{errorMessage}</p>
+          )}
         </motion.form>
       </div>
     </main>
