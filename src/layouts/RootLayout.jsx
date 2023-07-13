@@ -4,18 +4,23 @@ import { useRef, useState, useEffect } from "react";
 import Header from "../components/Header";
 import Logo from "../components/Logo";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 const RootLayout = () => {
+  const isDesktop = useMediaQuery({ minWidth: 1024 });
   const [navActive, setNavActive] = useState(false);
   const bodyRef = useRef();
 
   const [x, setX] = useState(0);
   const [y, setY] = useState(-100);
-
   const location = useLocation();
+
   const handleMouseMove = (event) => {
-    setX(event.clientX + 60);
-    setY(event.clientY + 60);
+    if (isDesktop) {
+      setX(event.clientX + 60);
+      setY(event.clientY + 60);
+    }
   };
+
   useEffect(() => {
     window.scrollTo({ top: 0, behaviour: "smooth" });
   }, [location]);
@@ -41,8 +46,8 @@ const RootLayout = () => {
             width: 100,
             height: 100,
           }}
-        > 
-        <p className="text-white">Justindavid</p>
+        >
+          <p className="text-white">Justindavid</p>
         </div>
         <>
           <Outlet />
