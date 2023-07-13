@@ -1,27 +1,28 @@
 import PropTypes from "prop-types";
 import MildCta from "./MildCta";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+// import { useRef } from "react";
 const Project = ({ project }) => {
-  const targetRef = useRef(null);
+  // const targetRef = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: targetRef,
+  //   offset: ["start end", "end start"],
+  // });
 
-  // const opacity = useTransform(scrollYProgress, [0.15, 0.3], [0.1, 1]);
+  // const scaleX = useTransform(scrollYProgress, [1, 0.7], ["100%", 1]);
   // const mobile = project.mobileView
   return (
     // out wrapper
     <motion.div
-      // style={{ opacity }}
+      // style={{ scaleX }}
       // ref={targetRef}
+      // transition={{duration : 2}}
       className="bg-[url('./images/project-images/react-weather-mobile-bg.png')] bg-cover rounded-3xl mx-auto min-w-72 max-w-[22rem] md:max-w-[40rem] lg:max-w-[50rem] transition duration-700 "
     >
       {/* inner wrapper  */}
-      <div className="mx-auto space-y-2 px-4 py-6 rounded-3xl bg-indigo-600 backdrop-blur-xl bg-clip-padding bg-opacity-5 backdrop-flter md:backdrop-blur-3xl hover:bg-indigo-950 hover:bg-opacity-20">
+      <div className="mx-auto space-y-2 px-4 py-6 rounded-3xl bg-indigo-900 backdrop-blur-xl bg-clip-padding bg-opacity-20 backdrop-flter border-[1px] border-gray-600 md:backdrop-blur-3xl hover:bg-indigo-950 hover:bg-opacity-20 hover:border-indigo-600 hover:shadow-xl hover:shadow-indigo-600">
         {/* innermost wrapper */}
         <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4 md:items-start">
           {/* project image */}
@@ -35,7 +36,7 @@ const Project = ({ project }) => {
           {/* project text */}
           <div className="flex flex-col space-y-2 mx-auto md:w-1/2">
             <h3 className="text-xl text-white lg:text-2xl">{project.title}</h3>
-            <p className="text-gray-300 md:max-w-xl lg:text-lg">
+            <p className="text-gray-100 md:max-w-xl lg:text-lg">
               {project.projectDesc}
             </p>
           </div>
