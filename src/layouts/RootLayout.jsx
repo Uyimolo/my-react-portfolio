@@ -24,7 +24,7 @@ const RootLayout = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behaviour: "smooth" });
   }, [location]);
-
+  // todo: use context to implement light and dark mode switches 
   return (
     <div className="bg-slate-950">
       <div

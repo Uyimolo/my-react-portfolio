@@ -1,29 +1,16 @@
 import PropTypes from "prop-types";
 import MildCta from "./MildCta";
 
-import { motion } from "framer-motion";
-// import { useRef } from "react";
-const Project = ({ project }) => {
-  // const targetRef = useRef(null);
-
-  // const { scrollYProgress } = useScroll({
-  //   target: targetRef,
-  //   offset: ["start end", "end start"],
-  // });
-
-  // const scaleX = useTransform(scrollYProgress, [1, 0.7], ["100%", 1]);
-  // const mobile = project.mobileView
+const Project = ({ project, num }) => {
   return (
-    // out wrapper
-    <motion.div
-      // style={{ scaleX }}
-      // ref={targetRef}
-      // transition={{duration : 2}}
-      className="bg-[url('./images/project-images/react-weather-mobile-bg.png')] bg-cover rounded-3xl mx-auto min-w-72 max-w-[22rem] md:max-w-[40rem] lg:max-w-[50rem] transition duration-700 "
-    >
+    <div className="bg-[url('./images/project-images/react-weather-mobile-bg.png')] relative bg-cover rounded-3xl mx-auto min-w-72 max-w-[22rem] md:max-w-[40rem] lg:max-w-[50rem] transition duration-700 ">
       {/* inner wrapper  */}
-      <div className="mx-auto space-y-2 px-4 py-6 rounded-3xl bg-indigo-900 backdrop-blur-xl bg-clip-padding bg-opacity-20 backdrop-flter border-[1px] border-gray-600 md:backdrop-blur-3xl hover:bg-indigo-950 hover:bg-opacity-20 hover:border-indigo-600 hover:shadow-md hover:shadow-indigo-600">
+      <div className="text-[5rem] text-gray-800 absolute left-[-40px] top-[-65px] border font-extrabold w-fit px-4 rounded-full flex items-center justify-center">
+        {num + 1}
+      </div>
+      <div className="mx-auto space-y-2 px-4 py-6 rounded-3xl bg-indigo-900 backdrop-blur-xl bg-clip-padding bg-opacity-30 backdrop-filter border-[1px] border-gray-600 md:backdrop-blur-3xl hover:bg-indigo-950 hover:bg-opacity-20 hover:border-indigo-600 hover:shadow-md hover:shadow-indigo-600">
         {/* innermost wrapper */}
+
         <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4 md:items-start">
           {/* project image */}
           <div className=" py-2  mx-auto md:w-1/2">
@@ -35,7 +22,7 @@ const Project = ({ project }) => {
           </div>
           {/* project text */}
           <div className="flex flex-col space-y-2 mx-auto md:w-1/2">
-            <h3 className="text-xl text-white lg:text-2xl">{project.title}</h3>
+            <h3 className={`${project.titleColor} text-2xl font-extrabold lg:text-3xl`}>{project.title}</h3>
             <p className="text-gray-100 md:max-w-xl lg:text-lg">
               {project.projectDesc}
             </p>
@@ -44,6 +31,7 @@ const Project = ({ project }) => {
         {/* techs used */}
         <div className="flex flex-col pt-4 justify-between md:items-center md:flex-row-reverse">
           <div className="flex items-center space-x-2">
+            {/* eslint-disable-next-line react/prop-types */}
             {project.technologies.map((tech, index) => (
               <p
                 key={index}
@@ -60,11 +48,12 @@ const Project = ({ project }) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
 Project.propTypes = {
+  num: PropTypes.number.isRequired,
   project: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
