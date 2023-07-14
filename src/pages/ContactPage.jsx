@@ -1,5 +1,5 @@
 import { motion, useScroll, useSpring } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { send } from "emailjs-com";
 import FormGroup from "../components/FormGroup";
 
@@ -82,16 +82,21 @@ const ContactPage = () => {
         className="fixed top-0 left-0 right-0 origin-left ml-0 h-2 bg-purple-600 z-30"
       ></motion.div>
 
-      <div className="flex flex-col space-y-12 px-6 md:px-16 xl:px-28">
+      <motion.div
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
+        className="flex flex-col space-y-12 px-6 md:px-16 xl:px-28"
+      >
         <div className="flex flex-col space-y-2">
-          <h1 className="text-3xl text-gray-200 lg:text-5xl ">
+          <h1 className="text-3xl text-gray-200 lg:text-center lg:text-5xl ">
             Send me an email
           </h1>
-          <p className="text-gray-400 md:max-w-2xl lg:max-w-3xl lg:text-lg ">
-            {`(I'll love to here from you)`}
+          <p className="text-gray-400 md:max-w-2xl lg:mx-auto lg:max-w-3xl lg:text-lg ">
+            {`(I'll love to hear from you)`}
           </p>
         </div>
-        <motion.form
+        <form
           ref={formRef}
           onSubmit={onSubmit}
           action="post"
@@ -162,8 +167,8 @@ const ContactPage = () => {
           {error && (
             <p className="text-white w-full lg-text-lg">{errorMessage}</p>
           )}
-        </motion.form>
-      </div>
+        </form>
+      </motion.div>
     </main>
   );
 };
