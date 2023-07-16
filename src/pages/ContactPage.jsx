@@ -106,7 +106,7 @@ const ContactPage = () => {
             type="text"
             label="First name"
             name="firstName"
-            placeholder="Type in first name..."
+            placeholder="Your first name"
             value={formData.firstName}
             formData={formData}
             setFormData={setFormData}
@@ -116,7 +116,7 @@ const ContactPage = () => {
             type="text"
             label="Last name"
             name="lastName"
-            placeholder="Type in last name..."
+            placeholder="Your last name"
             value={formData.lastName}
             formData={formData}
             setFormData={setFormData}
@@ -126,7 +126,7 @@ const ContactPage = () => {
             type="email"
             label="email"
             name="email"
-            placeholder="Type in email..."
+            placeholder="Your email"
             value={formData.email}
             formData={formData}
             setFormData={setFormData}
@@ -145,8 +145,8 @@ const ContactPage = () => {
               id="message"
               value={formData.message}
               onChange={handleChange}
-              className="bg-transparent border-2 rounded h-40 text-gray-400 px-2 pt-3 placeholder:text-gray-600 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4"
-              placeholder="Tell me anything..."
+              className="bg-transparent border-2 rounded h-40 text-gray-400 px-2 pt-3 placeholder:text-gray-400 placeholder:pl-3 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4"
+              placeholder="Tell me anything"
             />
           </div>
           <motion.div

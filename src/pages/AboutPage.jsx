@@ -19,7 +19,7 @@ const AboutPage = () => {
         className="flex flex-col space-y-6 px-6 md:mt-6 md:px-16 xl:px-28"
       >
         <h1 className="text-3xl text-gray-200 lg:text-5xl ">
-          A Little About Me (and My Code)
+          A little about me (and My Code)
         </h1>
         <div className="flex flex-col justify-between items-center space-y-10 lg:flex-row-reverse lg:space-y-0">
           {/* about image */}

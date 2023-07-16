@@ -58,7 +58,7 @@ const Nav = ({ navActive, setNavActive }) => {
       };
 
   const navItems = [
-    { text: "Hub", link: "/" },
+    { text: "Home", link: "/" },
     { text: "Gallery", link: "projects" },
     { text: "About me", link: "about" },
     { text: "Get in touch", link: "contact" },
