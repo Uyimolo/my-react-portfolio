@@ -56,17 +56,17 @@ const RootLayout = () => {
         <footer className=" px-6 py-6 border-t border-gray-700 space-x-6 flex justify-between md:px-16 xl:px-28">
           <Logo />
           <div className="flex flex-wrap text-gray-300 items-center md:max-w-xl  lg:text-lg">
-            <Link to="https://twitter.com/uyimolo247" className="pr-2">
+            <Link to="https://github.com/uyimolo" className="pr-2 hover:text-indigo-600">
               Github
             </Link>
-            <Link to="https://twitter.com/uyimolo247" className="pr-2">
+            <Link to="https://facebook.com/uyimolo" className="pr-2 hover:text-indigo-600">
               Facebook
             </Link>
-            <Link to="https://twitter.com/uyimolo247" className="pr-2">
+            <Link to="https://instagram.com/uyidavidtommy" className="pr-2 hover:text-indigo-600">
               Instagram
             </Link>
-            <Link to="https://twitter.com/uyimolo247" className="pr-2">
-              Linkedin
+            <Link to="https://twitter.com/uyimolo247" className="pr-2 hover:text-indigo-600">
+              Twitter
             </Link>
           </div>
         </footer>

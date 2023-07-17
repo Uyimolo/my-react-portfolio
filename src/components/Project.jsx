@@ -23,7 +23,7 @@ const Project = ({ project, num }) => {
           {/* project text */}
           <div className="flex flex-col space-y-2 mx-auto md:w-1/2">
             <h3 className={`${project.titleColor} text-2xl font-extrabold lg:text-3xl`}>{project.title}</h3>
-            <p className="text-gray-100 md:max-w-xl lg:text-lg">
+            <p className="text-gray-300 md:max-w-xl lg:text-lg">
               {project.projectDesc}
             </p>
           </div>
@@ -44,7 +44,7 @@ const Project = ({ project, num }) => {
           {/* CTAs */}
           <div className="flex justify-between pt-6 md:pt-0 space-x-6">
             <MildCta link={project.liveLink} text="View live" />
-            <MildCta linnk={project.github} text="Github" />
+            <MildCta link={project.github} text="Github" />
           </div>
         </div>
       </div>

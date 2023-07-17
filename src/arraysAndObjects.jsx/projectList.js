@@ -29,7 +29,7 @@ const projectList = [
     },
     {
       title: "Uyi Justin David",
-      titleColor: "text-white",
+      titleColor: "text-teal-500",
       projectDesc: `My very first portfolio website, built with HTML, CSS, Javascript, it boasts of a clean and modern design that showcases my skills in frontend web development. Is easy to navigate and provides clear overview of my skills and experience. It also includes a section to show my works`,
       technologies: ["JS", "CSS", "HTML"],
       liveLink: "https://uyijustindavid.vercel.app",
@@ -56,11 +56,11 @@ const projectList = [
     },
     {
       title: "Interactive Credit Card",
-      titleColor: "text-blue-600",
+      titleColor: "text-indigo-700",
       projectDesc: `This is a frontend mentor challenge, users can fill in data on the form and see it update live on the virtual credit card. It was built with javascript and features nice form validations and error handling. `,
       technologies: ["JS", "CSS", "HTML"],
-      liveLink: "https://uyimolo.github.io/e-commerce-product-page",
-      github: "https://github.com/uyimolo/e-commerce-product-page",
+      liveLink: "https://uyimolo.github.io/interactive-credit-card",
+      github: "https://github.com/uyimolo/interactive-credit-card",
       desktopView: interactiveCardDesktop,
     },
   ];
