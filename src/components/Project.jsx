@@ -8,7 +8,7 @@ const Project = ({ project, num }) => {
       <div className="text-[5rem] text-gray-800 absolute left-[-40px] top-[-65px] border font-extrabold w-fit px-4 rounded-full flex items-center justify-center">
         {num + 1}
       </div>
-      <div className="mx-auto space-y-2 px-4 py-6 rounded-3xl bg-indigo-900 backdrop-blur-xl bg-clip-padding bg-opacity-30 backdrop-filter border-[1px] border-gray-600 md:backdrop-blur-3xl hover:bg-indigo-950 hover:bg-opacity-20 hover:border-indigo-600 hover:shadow-md hover:shadow-indigo-600">
+      <div className="mx-auto space-y-2 px-4 py-6 rounded-3xl bg-indigo-950 backdrop-blur-xl bg-clip-padding bg-opacity-80 backdrop-filter border-[1px] border-gray-600 md:backdrop-blur-3xl  hover:bg-opacity-90 hover:border-indigo-600 hover:shadow-md hover:shadow-indigo-600">
         {/* innermost wrapper */}
 
         <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4 md:items-start">
@@ -22,7 +22,7 @@ const Project = ({ project, num }) => {
           </div>
           {/* project text */}
           <div className="flex flex-col space-y-2 mx-auto md:w-1/2">
-            <h3 className={`${project.titleColor} text-2xl font-extrabold lg:text-3xl`}>{project.title}</h3>
+            <h3 className={`text-white text-2xl font-extrabold lg:text-3xl`}>{project.title}</h3>
             <p className="text-gray-300 md:max-w-xl lg:text-lg">
               {project.projectDesc}
             </p>
