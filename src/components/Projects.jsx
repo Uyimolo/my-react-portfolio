@@ -1,7 +1,7 @@
 import Project from './Project';
-import MildCta from './MildCta';
 import projectList from '../arraysAndObjects.jsx/projectList';
 import Slide from './Slide';
+import ButtonCta from './ButtonCta';
 const Projects = () => {
   return (
     <section>
@@ -24,8 +24,12 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className='mx-auto'>
-          <MildCta text='See more' link='projects' color='indigo-950' />
+        <div className='mx-auto mt-12'>
+          <ButtonCta
+            text='See more'
+            link='projects'
+            backgroundColor='bg-indigo-950'
+          />
         </div>
       </Slide>
     </section>

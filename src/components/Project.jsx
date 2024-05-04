@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import Slide from './Slide';
+import MildCta from './MildCta';
 
 const Project = ({ project }) => {
   return (
@@ -58,6 +59,44 @@ const Project = ({ project }) => {
           </div>
 
           <div className=''>
+            <div className='flex items-center justify-center w-[80%] mx-auto mt-6 space-x-6 pb-4 '>
+              <Slide
+                slideClass=''
+                slideVariants={{
+                  hidden: { x: -100 },
+                  visible: {
+                    x: 0,
+                    transition: {
+                      duration: 0.5,
+                      ease: 'easeOut',
+                      delay: 0.3,
+                    },
+                  },
+                }}>
+                {' '}
+                <MildCta text='Github' color='gray-900' link={project.github} />
+              </Slide>
+              <Slide
+                slideClass=''
+                slideVariants={{
+                  hidden: { x: 100 },
+                  visible: {
+                    x: 0,
+                    transition: {
+                      duration: 0.5,
+                      ease: 'easeOut',
+                      delay: 0.3,
+                    },
+                  },
+                }}>
+                {' '}
+                <MildCta
+                  text='Live Site'
+                  color='gray-900'
+                  link={project.liveLink}
+                />
+              </Slide>
+            </div>
             <div className='flex flex-wrap items-center justify-center space-x-1 pb-4 '>
               {project.technologies.map((tech, index) => (
                 <p

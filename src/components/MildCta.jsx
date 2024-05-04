@@ -6,7 +6,7 @@ const MildCta = ({ text, link, color }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className='w-full'>
+    <div className='w-fit'>
       <Link
         to={link}
         className={`text-gray-300 font-Poppins text-${color}  lg:text-lg`}

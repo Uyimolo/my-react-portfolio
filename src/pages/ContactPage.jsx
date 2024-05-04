@@ -1,11 +1,9 @@
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { send } from "emailjs-com";
 import FormGroup from "../components/FormGroup";
 
 const ContactPage = () => {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress);
   const formRef = useRef(null);
 
   const [error, setError] = useState(true);
@@ -73,99 +71,90 @@ const ContactPage = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(formData)
   };
 
   return (
-    <main className="pt-32 pb-20 min-h-screen">
+    <main className='pt-32 pb-20 min-h-screen bg-gray-200'>
       <motion.div
-        style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 origin-left ml-0 h-2 bg-purple-600 z-30"
-      ></motion.div>
-
-      <motion.div
-        initial={{ x: "100%" }}
+        initial={{ x: '100%' }}
         animate={{ x: 0 }}
-        transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
-        className="flex flex-col space-y-12 px-6 md:px-16 xl:px-28"
-      >
-        <div className="flex flex-col space-y-2">
-          <h1 className="text-3xl text-gray-200 lg:text-center lg:text-5xl ">
+        transition={{ delay: 0.5, type: 'spring', stiffness: 100 }}
+        className='flex flex-col space-y-12 px-6 md:px-16 xl:px-28'>
+        <div className='flex flex-col space-y-2'>
+          <h1 className='text-5xl font-Lobster text-center italic font-bold text-indigo-950 md:text-6xl lg:text-7xl'>
             Send me an email
           </h1>
-          <p className="text-gray-400 md:max-w-2xl lg:mx-auto lg:max-w-3xl lg:text-lg ">
+          <p className='text-gray-900 font-Poppins mx-auto w-[90%] max-w-[35rem] md:max-w-2xl leading- text-center  lg:max-w-3xl lg:text-lg '>
             {`(I'll love to hear from you)`}
           </p>
         </div>
         <form
           ref={formRef}
           onSubmit={onSubmit}
-          action="post"
-          className="w-full flex flex-col space-y-6 max-w-sm px-4 py-12 border-2 border-gray-300 rounded-xl shadow-indigo-600 mx-auto hover:shadow-lg hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4 md:px-6 "
-        >
+          action='post'
+          className='w-full flex flex-col space-y-6 max-w-sm px-4 py-12 border-2 border-slate-950 rounded-xl shadow-indigo-600 mx-auto hover:shadow-lg hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4 md:px-6 '>
           <FormGroup
-            type="text"
-            label="First name"
-            name="firstName"
-            placeholder="Your first name"
+            type='text'
+            label='First name'
+            name='firstName'
+            placeholder='Your first name'
             value={formData.firstName}
             formData={formData}
             setFormData={setFormData}
           />
 
           <FormGroup
-            type="text"
-            label="Last name"
-            name="lastName"
-            placeholder="Your last name"
+            type='text'
+            label='Last name'
+            name='lastName'
+            placeholder='Your last name'
             value={formData.lastName}
             formData={formData}
             setFormData={setFormData}
           />
 
           <FormGroup
-            type="email"
-            label="email"
-            name="email"
-            placeholder="Your email"
+            type='email'
+            label='email'
+            name='email'
+            placeholder='Your email'
             value={formData.email}
             formData={formData}
             setFormData={setFormData}
           />
 
-          <div className="flex flex-col space-y-2 relative">
+          <div className='flex flex-col space-y-2 relative'>
             <label
-              htmlFor="Message"
-              className="absolute top-[-5px] bg-slate-950 text-gray-300 px-2 left-4 rounded-md"
-            >
+              htmlFor='Message'
+              className='absolute top-[-5px] bg-gray-200 text-gray-900 px-2 left-4 rounded-md'>
               Type in message
             </label>
             <textarea
-              type="text"
-              name="message"
-              id="message"
+              type='text'
+              name='message'
+              id='message'
               value={formData.message}
               onChange={handleChange}
-              className="bg-transparent border-2 rounded h-40 text-gray-400 px-2 pt-3 placeholder:text-gray-400 placeholder:pl-3 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4"
-              placeholder="Tell me anything"
+              className='bg-transparent border-2 border-slate-900 rounded h-40 text-gray-900 px-2 pt-3 placeholder:text-gray-600 placeholder:pl-3 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4'
+              placeholder='Tell me anything'
             />
           </div>
           <motion.div
             initial={{ scale: 1 }}
             whileHover={{ scale: [1, 1.1, 1, 1.2, 1.1, 3, 1.1] }}
-            transition={{ duration: 1, type: "spring", stiffness: 500 }}
-            className="w-fit"
-          >
+            transition={{ duration: 1, type: 'spring', stiffness: 500 }}
+            className='w-fit'>
             <button
-              type="submit"
-              className="px-8 py-2 rounded-md border-2 text-gray-300 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4"
-            >
+              type='submit'
+              className='px-8 py-2 rounded-md bg-indigo-950 border-2 text-gray-300 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4'>
               Send Email
             </button>
           </motion.div>
 
-          <p className="text-white w-full lg:text-lg">{emailSentStatus}</p>
-          {error && (
-            <p className="text-white w-full lg-text-lg">{errorMessage}</p>
+          <p className='text-green-500 w-full lg:text-lg'>{emailSentStatus}</p>
+          {errorMessage && error && (
+            <p className='text-red-700 w-full lg-text-lg'>{errorMessage}</p>
           )}
         </form>
       </motion.div>

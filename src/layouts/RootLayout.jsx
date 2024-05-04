@@ -30,7 +30,7 @@ const RootLayout = () => {
   }, [location, isDesktop]);
   // todo: use context to implement light and dark mode switches
   return (
-    <div className='bg-slate-800'>
+    <div className=''>
       <div
         ref={bodyRef}
         onMouseMove={handleMouseMove}
@@ -58,7 +58,7 @@ const RootLayout = () => {
           <Outlet />
         </>
 
-        <footer className=' px-6 py-6 border-t border-gray-700 space-x-6 flex justify-between md:px-16 xl:px-28'>
+        <footer className=' px-6 py-6 bg-black space-x-6 flex justify-between md:px-16 xl:px-28'>
           <Logo />
           <div className='flex flex-wrap text-gray-300 items-center md:max-w-xl  lg:text-lg'>
             <Link

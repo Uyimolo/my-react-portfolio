@@ -10,7 +10,7 @@ const FormGroup = ({ name, value, placeholder, label, type, formData, setFormDat
     <div className="flex flex-col space-y-2 relative">
       <label
         htmlFor={name}
-        className="absolute top-[-5px] bg-slate-950 text-gray-300 px-2 left-4 rounded-md"
+        className="absolute top-[-5px] bg-gray-200 text-gray-900 px-2 left-4 rounded-md"
       >
         {label}
       </label>
@@ -20,7 +20,7 @@ const FormGroup = ({ name, value, placeholder, label, type, formData, setFormDat
         id={name}
         value={value}
         onChange={handleChange}
-        className="bg-transparent border-2 rounded h-12 text-gray-300 px-2 placeholder:text-gray-400 placeholder:pl-3 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4"
+        className="bg-transparent border-2 border-slate-900 rounded h-12 text-gray-900 px-2 placeholder:text-gray-500 placeholder:pl-3 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4"
         placeholder={placeholder}
       />
     </div>

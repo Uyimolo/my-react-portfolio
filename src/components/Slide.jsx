@@ -8,7 +8,7 @@ const Slide = ({ children, slideClass, slideVariants }) => {
   const controls = useAnimation();
 
   const defaultVariants = {
-    hidden: { opacity: 0, y: 90 },
+    hidden: { opacity: 0, y: 120 },
     visible: {
       opacity: 1,
       y: 0,
