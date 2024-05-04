@@ -11,7 +11,7 @@ const About = () => {
           A Little About Me
         </h2>
 
-        <p className='text-gray-300 font-Poppins md:max-w-2xl leading- text-center md:mx-auto lg:max-w-3xl lg:text-lg '>
+        <p className='text-gray-300 font-Poppins mx-auto w-[90%] max-w-[35rem] md:max-w-2xl leading- text-center  lg:max-w-3xl lg:text-lg '>
           {`Hey there, I'm Uyi, your friendly neighborhood front-end web developer! I've got a knack for creating websites that not only look cool but work like a charm. `}
         </p>
 

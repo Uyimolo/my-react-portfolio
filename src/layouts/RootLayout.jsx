@@ -42,7 +42,7 @@ const RootLayout = () => {
           animate={{
             x: x + 10, 
             y: y + 10, 
-            transition: { duration:1, ease: 'backInOut' },
+            transition: { duration:2, ease: 'backInOut' },
           }}
           className='z-30'
           style={{

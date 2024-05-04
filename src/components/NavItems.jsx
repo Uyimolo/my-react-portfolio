@@ -13,7 +13,7 @@ const NavItems = ({ navItem, setNavActive,  }) => {
       <Link
         onClick={() => setNavActive(false)}
         to={navItem.link}
-        className="text-indigo-500 w-fit text-3xl transition-all duration-900 ease-in-out  lg:text-lg lg:hover:bg-transparent lg:my-0 hover:border-b-2 border-indigo-600  lg:w-fit"
+        className="text-blue-200 font-Lobster w-fit text-7xl md:text-9xl transition-all duration-900 ease-in-out  lg:text-lg lg:hover:bg-transparent lg:my-0 hover:border-b-2 border-indigo-600  lg:w-fit"
       >
         {navItem.text}
       </Link>
