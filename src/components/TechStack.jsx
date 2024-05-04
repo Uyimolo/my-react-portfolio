@@ -23,9 +23,9 @@ const TechStack = () => {
     },
   };
 
-  const iconStyle = "text-indigo-600 text-[2em] md:text-[2.8em]";
+  const iconStyle = "text-indigo-600 text-[2em] md:text-[2.8em] xl:text-[4em]";
   return (
-    <div className="px-6 md:px-16">
+    <div className="md:px-16">
       <div className="flex w-full justify-between sm:space-x-6 md:max-w-3xl md:mx-auto lg:space-x-10">
         <motion.div className="" variants={childVariant}>
           <SiFirebase className={iconStyle} />

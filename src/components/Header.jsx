@@ -26,19 +26,19 @@ const Header = ({ navActive, setNavActive }) => {
   return (
     <motion.header
       variants={containerVariant}
-      initial="start"
-      animate="end"
-      
-      className={`px-6 bg-slate-950 z-10 fixed top-0 left-0 right-0 mx-auto w-full py-4 flex justify-between w-full lg:pr-0 lg:items-center md:px-16 xl:px-28`}
-    >
-      <Logo />
+      initial='start'
+      animate='end'
+      className={`px-6 z-10 fixed top-0 left-0 right-0 mx-auto w-full py-4 flex justify-between w-full lg:pr-0 lg:items-center md:px-16 lg:justify-end xl:px-28`}>
+      <div className='lg:hidden'>
+        <Logo />
+      </div>
       <Nav navActive={navActive} setNavActive={setNavActive} />
       {/* hamburger menu */}
       <img
         src={menuBtn}
-        alt="menu button"
+        alt='menu button'
         className={` ${
-          navActive ? "rotate-90" : "rotate-0"
+          navActive ? 'rotate-90' : 'rotate-0'
         } cursor-pointer transition-transform duration-300 z-20 lg:hidden self-center`}
         onClick={() => {
           setNavActive(!navActive);

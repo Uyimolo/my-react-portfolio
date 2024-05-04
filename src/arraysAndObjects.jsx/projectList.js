@@ -1,78 +1,53 @@
-import RestCountriesDesktop from '../images/project-images/rest-countries-desktop-bg.png';
-import weatherDesktop from '../images/project-images/react-weather-desktop-bg.png';
-import todoDesktop from '../images/project-images/todo-app-desktop-bg.jpg';
-import productPageDesktop from '../images/project-images/product-page-desktop-bg.png';
-import interactiveCardDesktop from '../images/project-images/interactive-card-desktop-bg.png';
-import portfolioV1 from '../images/project-images/uyijustindavid-desktop-bg.png';
-import getQrNowDesktop from '../images/project-images/get-qr-now-desktop-bg.png';
+import nexamart1 from '../images/project-images/nexamart-1.png';
+import nexamart2 from '../images/project-images/nexamart-2.png';
+
+import popcornphoria1 from '../images/project-images/popcornphoria-1.png';
+import popcornphoria2 from '../images/project-images/popcornphoria-2.png';
+
+import multiStepForm1 from '../images/project-images/multi-step-form-1.png';
+import multiStepForm2 from '../images/project-images/multi-step-form-2.png';
+
+import getQrNow2 from '../images/project-images/get-qr-now-2.png';
+import getQrNow1 from '../images/project-images/get-qr-now-1.png';
 
 const projectList = [
   {
+    id: 1,
+    title: 'Nexamart',
+    backgroundColor: '#4F91CD', // Converted from bg-green-600
+    technologies: ['React', 'Css', 'Firebase', 'DummyJson API'],
+    liveLink: `https://nexamart.vercel.app`,
+    github: `https://github.com/Uyimolo/nexamart`,
+    images: [nexamart1, nexamart2],
+  },
+  {
+    id: 2,
+    title: 'Popcornphoria',
+    backgroundColor: '#F29E4C', // Converted from bg-orange-400
+    technologies: ['React', 'Css', 'TMDB API'],
+    liveLink: `https://popcornphoria.vercel.app`,
+    github: `https://github.com/Uyimolo/popcornphoria`,
+    images: [popcornphoria1, popcornphoria2],
+  },
+  {
+    id: 3,
+    title: 'Multi Step Form',
+    backgroundColor: '#6379F4', // Converted from bg-indigo-400
+    technologies: ['React', 'Css'],
+    liveLink: `https://multi-step-form.vercel.app`,
+    github: `https://github.com/Uyimolo/multi-step-form`,
+    images: [multiStepForm1, multiStepForm2],
+  },
+  {
+    id: 4,
     title: 'Get Qr Now',
-    titleColor: 'text-blue-500',
+    backgroundColor: '#93C5FD', // Converted from bg-blue-400
     projectDesc: `
-This QR code generator lets users create codes for URLs, emails, and even downloadable files. The clean interface allows input, file upload, QR code download as an image, or direct sharing. It showcases my React skills, QR code understanding, and user-friendly design.`,
+      This QR code generator lets users create codes for URLs, emails, and even downloadable files. The clean interface allows input, file upload, QR code download as an image, or direct sharing. It showcases my React skills, QR code understanding, and user-friendly design.`,
     technologies: ['React', 'Tailwind', 'Firebase'],
     liveLink: `https://get-qr-now.vercel.app`,
     github: `https://github.com/Uyimolo/get-qr-now`,
-    desktopView: getQrNowDesktop,
-  },
-  {
-    title: 'Weather App',
-    titleColor: 'text-blue-500',
-    projectDesc: `This app allows users to get the current weather forecast for any
-        location in the world. Users can simply enter a city name or zip
-        code into the search bar and the app will return the current weather
-        conditions, as well as a forcast for the next 7 days.`,
-    technologies: ['React', 'CSS', 'API'],
-    liveLink: 'https://react-weather-app-uyimolo.vercel.app',
-    github: 'https://github.com/uyimolo/react-weather-app',
-    desktopView: weatherDesktop,
-  },
-  {
-    title: 'Countrypedia',
-    titleColor: 'text-yellow-400',
-    projectDesc: `Countrypedia is a web app that allows users to search and explore information about countries around the world. Other features include filter by region and a theme toggler for light and dark modes.  `,
-    technologies: ['JS', 'CSS', 'HTML', 'API'],
-    liveLink: 'https://rest-countries-wheat.vercel.app',
-    github: 'https://github.com/uyimolo/rest-countries',
-    desktopView: RestCountriesDesktop,
-  },
-  {
-    title: 'Uyi Justin David',
-    titleColor: 'text-teal-500',
-    projectDesc: `My very first portfolio website, built with HTML, CSS, Javascript, it boasts of a clean and modern design that showcases my skills in frontend web development. Is easy to navigate and provides clear overview of my skills and experience. It also includes a section to show my works`,
-    technologies: ['JS', 'CSS', 'HTML'],
-    liveLink: 'https://uyijustindavid.vercel.app',
-    github: 'https://github.com/uyimolo/uyijustindavid',
-    desktopView: portfolioV1,
-  },
-  {
-    title: 'Todo App',
-    titleColor: 'text-purple-700',
-    projectDesc: `This is a simple to-do app built using Javascript. It allows users to create, edit, and delete to-do items, users can also filter todo items by their active states and theres a drag and drop feature to rearrange todos.`,
-    technologies: ['JS', 'CSS', 'HTML'],
-    liveLink: 'https://uyimolo.github.io/todo-app',
-    github: 'https://github.com/uyimolo/todo-app',
-    desktopView: todoDesktop,
-  },
-  {
-    title: 'Sneakers',
-    titleColor: 'text-orange-400',
-    projectDesc: `This is a sneaker product page I made very early in my journey. It includes complete cart features, lightboxes, carousels and modals and also a clean and responsive design. Learnt alot implementing the add to/remove from cart features.`,
-    technologies: ['JS', 'CSS', 'HTML'],
-    liveLink: 'https://uyimolo.github.io/e-commerce-product-page',
-    github: 'https://github.com/uyimolo/e-commerce-product-page',
-    desktopView: productPageDesktop,
-  },
-  {
-    title: 'Interactive Credit Card',
-    titleColor: 'text-indigo-700',
-    projectDesc: `This is a frontend mentor challenge, users can fill in data on the form and see it update live on the virtual credit card. It was built with javascript and features nice form validations and error handling. `,
-    technologies: ['JS', 'CSS', 'HTML'],
-    liveLink: 'https://uyimolo.github.io/interactive-card',
-    github: 'https://github.com/uyimolo/interactive-card',
-    desktopView: interactiveCardDesktop,
+    images: [getQrNow1, getQrNow2],
   },
 ];
 

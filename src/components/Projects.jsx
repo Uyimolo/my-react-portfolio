@@ -1,28 +1,33 @@
-import Project from "./Project";
-import MildCta from "./MildCta";
-import projectList from "../arraysAndObjects.jsx/projectList";
+import Project from './Project';
+import MildCta from './MildCta';
+import projectList from '../arraysAndObjects.jsx/projectList';
+import Slide from './Slide';
 const Projects = () => {
   return (
-    <section className="w-full h-full px-6 mt-12  flex flex-col space-y-12 md:px-16 md:space-y-20 xl:px-28">
-      <div className="flex flex-col space-y-2">
-        <h2 className="text-3xl text-gray-200 md:text-center lg:text-4xl ">
-          Code Playground
-        </h2>
-        <p className="text-gray-400 md:max-w-2xl md:text-center md:mx-auto lg:max-w-3xl lg:text-lg ">
-          {`(Where good code meets great design)`}
-        </p>
-      </div>
+    <section>
+      <Slide slideClass='w-screen py-8 flex flex-col bg-gray-200'>
+        <div className='flex flex-col space-y-2 mb-20'>
+          <h2
+            className={`text-5xl left-0 bg-blue font-Lobster text-center italic font-bold text-indigo-950 md:text-6xl lg:text-7xl`}>
+            Code Playground
+          </h2>
 
-      {/* project */}
-      <div className="flex flex-col space-y-20">
-        {projectList.slice(0,3).map((project, index) => (
-          <Project key={index} project={project} num={index} />
-        ))}
-      </div>
+          <p className='text-indigo-950 font-Poppins md:max-w-2xl text-center md:mx-auto lg lg:text-lg '>
+            {`(Where good code meets great design)`}
+          </p>
+        </div>
 
-      <div className="md:mx-auto">
-        <MildCta text="See more" link="projects" />
-      </div>
+        {/* project */}
+        <div className='flex flex-col space-y-16'>
+          {projectList.slice(0, 3).map((project) => (
+            <Project key={project.id} project={project} />
+          ))}
+        </div>
+
+        <div className='mx-auto'>
+          <MildCta text='See more' link='projects' color='indigo-950' />
+        </div>
+      </Slide>
     </section>
   );
 };

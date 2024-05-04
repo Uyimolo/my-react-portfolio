@@ -1,70 +1,77 @@
-import PropTypes from "prop-types";
-import MildCta from "./MildCta";
+/* eslint-disable react/prop-types */
+import Slide from './Slide';
 
-const Project = ({ project, num }) => {
+const Project = ({ project }) => {
   return (
-    <div className="bg-[url('./images/project-images/react-weather-mobile-bg.png')] relative bg-cover rounded-3xl mx-auto min-w-72 max-w-[22rem] md:max-w-[40rem] lg:max-w-[50rem] transition duration-700 ">
-      {/* inner wrapper  */}
-      <div className="text-[5rem] text-gray-800 absolute left-[-40px] top-[-65px] border font-extrabold w-fit px-4 rounded-full flex items-center justify-center">
-        {num + 1}
-      </div>
-      <div className="mx-auto space-y-2 px-4 py-6 rounded-3xl bg-indigo-950 backdrop-blur-xl bg-clip-padding bg-opacity-80 backdrop-filter border-[1px] border-gray-600 md:backdrop-blur-3xl  hover:bg-opacity-90 hover:border-indigo-600 hover:shadow-md hover:shadow-indigo-600">
-        {/* innermost wrapper */}
+    <div>
+      <Slide slideClass='group flex space-y-12 flex-col mx-auto items-center justify-center '>
+        <div>
+          <h1
+            className={`text-6xl font-Lobster text-center italic font-bold text-indigo-950 md:text-8xl lg:text-6xl`}>
+            {project.title}
+          </h1>
+        </div>
+        {/*  */}
+        <div className='space-y-12'>
+          <div
+            className={`relative flex flex-col items-center justify-center p-4 gap-12 md:max-w-2xl lg:flex-row xl:max-w-3xl 2xl:max-w-6xl`}>
+            <Slide
+              slideClass='mx-auto rounded-md w-full md:w-[80%]'
+              slideVariants={{
+                hidden: { x: -100 },
+                visible: {
+                  x: 0,
+                  transition: {
+                    duration: 0.5,
+                    ease: 'easeOut',
+                    delay: 0.3,
+                  },
+                },
+              }}>
+              <img
+                src={project.images[0]}
+                alt={project.title}
+                className='w-full'
+              />
+            </Slide>
 
-        <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4 md:items-start">
-          {/* project image */}
-          <div className=" py-2  mx-auto md:w-1/2">
-            <img
-              src={project.desktopView}
-              alt="project"
-              className="rounded-2xl"
-            />
+            <Slide
+              slideClass='w-[30%] md:w-[20%]'
+              slideVariants={{
+                hidden: { x: 100 },
+                visible: {
+                  x: 0,
+                  transition: {
+                    duration: 0.5,
+                    ease: 'easeOut',
+                    delay: 0.3,
+                  },
+                },
+              }}>
+              {' '}
+              <img
+                src={project.images[1]}
+                alt='project.title'
+                className='w-full'
+              />
+            </Slide>
           </div>
-          {/* project text */}
-          <div className="flex flex-col space-y-2 mx-auto md:w-1/2">
-            <h3 className={`text-white text-2xl font-extrabold lg:text-3xl`}>{project.title}</h3>
-            <p className="text-gray-300 md:max-w-xl lg:text-lg">
-              {project.projectDesc}
-            </p>
-          </div>
-        </div>
-        {/* techs used */}
-        <div className="flex flex-col pt-4 justify-between md:items-center md:flex-row-reverse">
-          <div className="flex items-center space-x-2">
-            {/* eslint-disable-next-line react/prop-types */}
-            {project.technologies.map((tech, index) => (
-              <p
-                key={index}
-                className="p-2 bg-indigo-600 rounded-3xl text-white"
-              >
-                {tech}
-              </p>
-            ))}
-          </div>
-          {/* CTAs */}
-          <div className="flex justify-between pt-6 md:pt-0 space-x-6">
-            <MildCta link={project.liveLink} text="View live" />
-            <MildCta link={project.github} text="Github" />
+
+          <div className='flex flex-col py-2 space-y-4 px-4 justify-between items-center '>
+            <div className='flex flex-wrap items-center space-x-1 pb-4 '>
+              {project.technologies.map((tech, index) => (
+                <p
+                  key={index}
+                  className='px-2 py-1 text-sm font-Poppins bg-indigo-500 rounded-full text-white text-center md:text-xl'>
+                  {tech}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </Slide>
     </div>
   );
-};
-
-Project.propTypes = {
-  num: PropTypes.number.isRequired,
-  project: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      projectDesc: PropTypes.string.isRequired,
-      technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
-      liveLink: PropTypes.string.isRequired,
-      github: PropTypes.string.isRequired,
-      mobileView: PropTypes.string.isRequired,
-      desktopView: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    })
-  ).isRequired,
 };
 
 export default Project;
