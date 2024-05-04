@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
 
 const MildCta = ({ text, link, color }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className='w-fit '>
+    <div className='w-fit'>
       <Link
         to={link}
         className={`text-gray-300 font-Poppins text-${color}  lg:text-lg`}
@@ -22,11 +21,6 @@ const MildCta = ({ text, link, color }) => {
         } `}></div>
     </div>
   );
-};
-
-MildCta.propTypes = {
-  text: PropTypes.string.required,
-  link: PropTypes.string,
 };
 
 export default MildCta;

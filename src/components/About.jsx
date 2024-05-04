@@ -15,7 +15,7 @@ const About = () => {
           {`Hey there, I'm Uyi, your friendly neighborhood front-end web developer! I've got a knack for creating websites that not only look cool but work like a charm. `}
         </p>
 
-        <div className='pt-6 mx-auto'>
+        <div className='pt-6 mx-auto w-fit'>
           <MildCta text='Read more' link='about' />
         </div>
       </Slide>
