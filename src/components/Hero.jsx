@@ -26,7 +26,7 @@ const Hero = () => {
           solutions.
         </h1>
 
-        <div className='w-fit'>
+        <div className=''>
           <ButtonCta link='projects' text='View Projects' />
         </div>
       </Slide>

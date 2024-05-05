@@ -11,7 +11,7 @@ const Contact = () => {
         <p className='text-gray-900 font-Poppins mx-auto w-[90%] max-w-[35rem] md:max-w-2xl leading- text-center  lg:max-w-3xl lg:text-lg '>
           {`If you're looking for a passionate web developer who can bring your vision to life, I'm here to help! Let's collaborate to create something amazing and make your dream designs a reality.`}
         </p>
-        <div className='w-fit mx-auto'>
+        <div className='mx-auto'>
           <ButtonCta
             text='Contact me'
             link='contact'
