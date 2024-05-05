@@ -8,6 +8,8 @@ import {
   SiFramer,
   SiGithub,
   SiJavascript,
+  SiRedux,
+  SiReactquery,
 } from "react-icons/si";
 import { motion } from "framer-motion";
 
@@ -25,9 +27,9 @@ const TechStack = () => {
 
   const iconStyle = "text-indigo-600 text-[2.3em] md:text-[3.5em] xl:text-[4.5em]";
   return (
-    <div className="">
-      <div className="flex flex-wrap w-full justify-center space-x-2 md:mx-auto md:space-x-6 lg:space-x-10">
-        <motion.div className="" variants={childVariant}>
+    <div className=''>
+      <div className='flex flex-wrap w-full justify-center space-x-2 md:mx-auto md:space-x-6 lg:space-x-10'>
+        <motion.div className='' variants={childVariant}>
           <SiFirebase className={iconStyle} />
         </motion.div>
         <motion.div variants={childVariant}>
@@ -47,6 +49,12 @@ const TechStack = () => {
         </motion.div>
         <motion.div variants={childVariant}>
           <SiGithub className={iconStyle} />
+        </motion.div>
+        <motion.div variants={childVariant}>
+          <SiRedux className={iconStyle} />
+        </motion.div>
+        <motion.div variants={childVariant}>
+          <SiReactquery className={iconStyle} />
         </motion.div>
       </div>
     </div>

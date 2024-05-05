@@ -23,7 +23,7 @@ const About = () => {
   const slideClass = 'flex flex-col space-y-6 py-16  md:px-16 xl:px-28';
 
   return (
-    <section className='bg-black py-12 '>
+    <section className='bg-gradient-to-b from-black/90 to-black py-12 '>
       <Slide slideClass={slideClass}>
         <h2 className='text-3xl font-Poppins text-gray-200 text-center lg:text-4xl '>
           A Little About Me
