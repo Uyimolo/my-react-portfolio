@@ -38,29 +38,33 @@ const RootLayout = () => {
           navActive ? 'w-screen h-screen' : 'w-full min-h-screen xl:mx-auto'
         }`}>
         <Header navActive={navActive} setNavActive={setNavActive} />
-    {isDesktop && <motion.div
-          animate={{
-            x: x + 10, 
-            y: y + 10, 
-            transition: { duration:2, ease: 'backInOut' },
-          }}
-          className='z-30'
-          style={{
-            position: 'fixed',
+        {isDesktop && (
+          <motion.div
+            animate={{
+              x: x + 10,
+              y: y + 10,
+              transition: { duration: 2, ease: 'backInOut' },
+            }}
+            className='z-30'
+            style={{
+              position: 'fixed',
 
-            width: 100,
-            height: 100,
-          }}>
-          <Logo />
-        </motion.div>}
+              width: 100,
+              height: 100,
+            }}>
+            <Logo />
+          </motion.div>
+        )}
 
         <>
           <Outlet />
         </>
 
-        <footer className=' px-6 py-6 bg-black space-x-6 flex justify-between md:px-16 xl:px-28'>
-          <Logo />
-          <div className='flex flex-wrap text-gray-300 items-center md:max-w-xl  lg:text-lg'>
+        <footer className=' px-6 py-6 bg-black space-x-6 flex justify-between items-center md:px-16 xl:px-28'>
+          <div className=''>
+            <Logo />
+          </div>
+          <div className='flex w-fit flex-wrap text-gray-300 justify-end  lg:text-lg'>
             <Link
               to='https://github.com/uyimolo'
               className='pr-2 hover:text-indigo-600'>

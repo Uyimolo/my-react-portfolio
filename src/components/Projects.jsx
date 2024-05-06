@@ -4,8 +4,8 @@ import Slide from './Slide';
 import ButtonCta from './ButtonCta';
 const Projects = () => {
   return (
-    <section>
-      <Slide slideClass='w-screen py-8 flex flex-col bg-gray-200'>
+    <section className=' bg-gray-200 px-6 md:px-16 lg:px-20'>
+      <Slide slideClass='py-8 flex flex-col'>
         <div className='flex flex-col space-y-2 mb-20'>
           <h2
             className={`text-5xl left-0 bg-blue font-Lobster text-center italic font-bold text-indigo-950 md:text-6xl lg:text-7xl`}>

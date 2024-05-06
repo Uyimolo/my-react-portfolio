@@ -5,8 +5,7 @@ export default {
     extend: {
       fontFamily: {
         Poppins: ['Poppins', 'sans-serif'],
-        Lobster: ['Lobster Two', 'san-serif'],
-        Ruslan: ['Ruslan Display', 'sans-serif'],
+        Lobster: ['Lobster Two', 'Poppins', 'san-serif'],
       },
     },
   },

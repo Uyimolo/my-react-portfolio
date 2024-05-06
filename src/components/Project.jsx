@@ -4,20 +4,23 @@ import MildCta from './MildCta';
 
 const Project = ({ project }) => {
   return (
-    <div>
-      <Slide slideClass='group flex space-y-12 flex-col mx-auto items-center justify-center'>
+    <div className='border-2 border-b-gray-400 pb-12'>
+      <Slide slideClass='group flex flex-col mx-auto items-center justify-center'>
         <div>
-          <h1
-            className={`text-6xl font-Lobster text-center italic font-bold text-indigo-950 md:text-8xl lg:text-6xl`}>
+          <h3
+            className={`text-4xl font-Lobster text-center italic font-bold text-indigo-950 md:text-5xl lg:text-6xl`}>
             {project.title}
-          </h1>
+          </h3>
         </div>
         {/*  */}
-        <div className='space-y-12'>
+        <div
+        //  style={{backgroundColor: `${project.backgroundColor}`}}
+         >
           <div
-            className={`relative flex flex-col items-center justify-center p-4 space-y-6 md:max-w-2xl lg:flex-row lg:space-y-0 lg:space-x-6 xl:max-w-3xl 2xl:max-w-6xl`}>
+
+            className={`flex justify-center items-center p-4 lg:space-y-0 xl:max-w-3xl 2xl:max-w-6xl`}>
             <Slide
-              slideClass='mx-auto rounded-md w-full md:w-[80%]'
+              slideClass=' w-full md:w-[80%]'
               slideVariants={{
                 hidden: { x: -100 },
                 visible: {
@@ -37,9 +40,9 @@ const Project = ({ project }) => {
             </Slide>
 
             <Slide
-              slideClass='w-[25%] md:w-[20%]'
+              slideClass='w-[25%] md:w-[20%] '
               slideVariants={{
-                hidden: { x: 100 },
+                hidden: { x: 50 },
                 visible: {
                   x: 0,
                   transition: {

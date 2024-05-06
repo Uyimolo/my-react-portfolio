@@ -31,7 +31,7 @@ const Nav = ({ navActive, setNavActive }) => {
           transition: {
             when: 'afterChildren',
             duration: 0.5,
-            // staggerChildren: 0.1,
+            staggerChildren: 0.05,
           },
         },
       };
@@ -72,7 +72,7 @@ const Nav = ({ navActive, setNavActive }) => {
       animate={navActive ? 'open' : 'closed'}
       variants={navVariants}
       initial={false}
-      className={`flex flex-col absolute justify-center space-y-6 items-center left-0 top-0 right-0 mx-auto bg-slate-900 border-b-2 w-full h-screen z-20  lg:justify-right lg:relative lg:flex-row lg:shadow-none lg:pr-16 lg:py-0 lg:h-auto lg:bg-transparent lg:w-fit lg:items-center lg:space-y-0 lg:space-x-6 lg:mx-0 lg:border-none xl:pr-0`}>
+      className={`flex flex-col absolute justify-center space-y-6 items-center left-0 top-0 right-0 mx-auto bg-gray-900 w-full h-screen z-20  lg:justify-right lg:relative lg:flex-row lg:shadow-none lg:pr-16 lg:py-0 lg:h-auto lg:bg-transparent lg:w-fit lg:items-center lg:space-y-0 lg:space-x-6 lg:mx-0 lg:border-none xl:pr-0`}>
       {/* iterate over navItems and display each nav and icon */}
       {navItems.map((navItem, index) => (
         <motion.div key={index} variants={navItemsVariants} className=''>

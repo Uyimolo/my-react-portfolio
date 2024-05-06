@@ -5,21 +5,21 @@ import projectList from '../arraysAndObjects.jsx/projectList';
 import ButtonCta from '../components/ButtonCta';
 const Gallery = () => {
   return (
-    <div className='pt-20 pb-20 min-h-screen bg-gray-200'>
+    <div className='py-20 min-h-screen bg-gray-200'>
       <motion.div
         initial={{ x: '100%' }}
         animate={{ x: 0 }}
         // exit={{x:'100%'}}
         transition={{ delay: 0.5, type: 'spring', stiffness: 100 }}
-        className='px-6 flex flex-col space-y-28 md:px-16 xl:px-28'>
+        className='px-6 flex flex-col space-y-16 md:px-16 xl:px-28'>
         <div className='flex flex-col space-y-2'>
           <h1 className='text-5xl font-Lobster text-center italic font-bold text-indigo-950 md:text-6xl lg:text-7xl'>
             My gallery
           </h1>
-          <p className='text-gray-200 mx-auto text-center md:max-w-2xl lg:max-w-3xl lg:text-lg '>
+          <p className='text-gray-900 text-center mx-auto md:max-w-2xl lg:max-w-3xl lg:text-lg '>
             (Where great code meets great design)
           </p>
-          <p className='text-gray-800 font-Poppins text-center mx-auto md:max-w-2xl lg:max-w-3xl lg:text-xl'>
+          <p className='text-gray-800 pt-1 font-Poppins mx-auto text-center  md:max-w-2xl lg:max-w-3xl lg:text-xl'>
             {`Welcome to my gallery! Here you can find a selection of my frontend
           development projects. I'm passionate about creating beautiful and
           user-friendly interfaces. I hope you enjoy my work!`}
