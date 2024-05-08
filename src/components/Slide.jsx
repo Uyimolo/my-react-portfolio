@@ -4,7 +4,7 @@ import { useRef, useEffect } from 'react';
 
 const Slide = ({ children, slideClass, slideVariants }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
+  const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
 
   const defaultVariants = {
@@ -38,7 +38,8 @@ const Slide = ({ children, slideClass, slideVariants }) => {
       variants={variants}
       initial='hidden'
       animate={controls}
-      className={slideClass}>
+      className={slideClass}
+      >
       {children}
     </motion.div>
   );

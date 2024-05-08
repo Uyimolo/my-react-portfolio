@@ -1,77 +1,173 @@
-import { motion } from "framer-motion";
-import { useRef, useState } from "react";
-import { send } from "emailjs-com";
-import FormGroup from "../components/FormGroup";
+import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { send } from 'emailjs-com';
+import FormGroup from '../components/FormGroup';
+import loadingImg from '../images/loading.svg';
 
 const ContactPage = () => {
   const formRef = useRef(null);
-
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [emailSentStatus, setEmailSentStatus] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
+  const [emailSentStatus, setEmailSentStatus] = useState('');
 
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    message: "",
-    email: "",
-  });
+  const [formErrors, setFormErrors] = useState([
+    { id: 'firstName', message: '' },
+    { id: 'lastName', message: '' },
+    { id: 'email', message: '' },
+    { id: 'message', message: '' },
+  ]);
+
+  const [formData, setFormData] = useState([
+    {
+      id: 'firstName',
+      placeholder: 'John',
+      label: 'First Name',
+      value: '',
+    },
+    {
+      id: 'lastName',
+      placeholder: 'Doe',
+      label: 'Last Name',
+      value: '',
+    },
+    {
+      id: 'email',
+      placeholder: 'Johndoe@example.com',
+      label: 'Email',
+      value: '',
+    },
+    {
+      id: 'message',
+      placeholder: 'Tell me anything',
+      label: 'Type in your message',
+      value: '',
+    },
+  ]);
+
+  const validateForm = (name, value) => {
+    const index = formData.findIndex((field) => field.id === name);
+    let errorMessage;
+    if (name === 'firstName' || name === 'lastName') {
+      const nameRegex = /^[a-zA-Z]+$/;
+      const isValid = nameRegex.test(value.trim());
+      if (!isValid && value.length > 0) {
+        errorMessage = `${formData[index].label} should not include spaces, symbols or numbers. `;
+      } else {
+        errorMessage = '';
+      }
+    } else if (name === 'email') {
+      const emailRegex =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const isValid = emailRegex.test(value.trim());
+      if (!isValid && value.length > 0) {
+        errorMessage = `${formData[index].label} should be a valid email address. `;
+      } else {
+        errorMessage = '';
+      }
+    } else if (name === 'message') {
+      if (value.length >= 9) {
+        errorMessage = '';
+      } else {
+        errorMessage = `messages should be at least 9 characters long. `;
+      }
+    }
+    const errorIndex = formErrors.findIndex((error) => error.id === name);
+    const updatedErrorField = {
+      ...formErrors[errorIndex],
+      message: errorMessage,
+    };
+    const newErrorsData = [
+      ...formErrors.slice(0, errorIndex),
+      updatedErrorField,
+      ...formErrors.slice(errorIndex + 1),
+    ];
+    setFormErrors(newErrorsData);
+  };
 
   const env = import.meta.env;
 
-  const validateForm = () => {
-    if (
-      formData.firstName === "" ||
-      formData.lastName === "" ||
-      formData.message === "" ||
-      formData.email === ""
-    ) {
-      setError(true);
-      setErrorMessage("Please fill in all fields");
-    } else if (
-      formData.firstName.trim().includes(" ") ||
-      formData.lastName.trim().includes(" ")
-    ) {
-      setError(true);
-      setErrorMessage(
-        "First Name and Last Name fields should not include spaces"
+  const sendFormData = async () => {
+    setLoading(true);
+    setError(true);
+    const formattedFormData = {
+      firstName: formData[0].value,
+      lastName: formData[1].value,
+      email: formData[2].value,
+      message: formData[3].value,
+    };
+    try {
+      const response = await send(
+        env.VITE_SERVICE_ID,
+        'portfolio-template',
+        formattedFormData,
+        env.VITE_PUBLIC_KEY
       );
-    } else {
-      setError(false);
-      sendFormData();
+      if (response.text === 'OK') {
+        setLoading(false);
+        setError(false);
+        setEmailSentStatus('Email sent');
+        setFormData([
+          {
+            id: 'firstName',
+            placeholder: 'John',
+            label: 'First Name',
+            value: '',
+          },
+          {
+            id: 'lastName',
+            placeholder: 'Doe',
+            label: 'Last Name',
+            value: '',
+          },
+          {
+            id: 'email',
+            placeholder: 'Johndoe@example.com',
+            label: 'Email',
+            value: '',
+          },
+          {
+            id: 'message',
+            placeholder: 'Tell me anything',
+            label: 'Type in your message',
+            value: '',
+          },
+        ]);
+      }
+    } catch (error) {
+      setLoading(false);
+      setError(true);
+      setEmailSentStatus('Failed to send message');
+      console.log(error);
     }
-    setTimeout(() => {
-      setErrorMessage("");
-    }, [2000]);
   };
 
-  const sendFormData = async () => {
-    const response = await send(
-      env.VITE_SERVICE_ID,
-      "portfolio-template",
-      formData,
-      env.VITE_PUBLIC_KEY
-    );
-    if (response.text === "OK") {
-      setEmailSentStatus("Email sent");
-      setFormData({ firstName: "", lastName: "", message: "", email: "" });
-    } else {
-      setEmailSentStatus("Email not sent, try again");
-      console.log("not Sent");
-    }
-    setTimeout(() => {
-      setEmailSentStatus("");
-    }, [2000]);
-  };
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setErrorMessage('');
+      setEmailSentStatus('');
+    }, [4000]);
+    return () => clearTimeout(timeout);
+  }, [errorMessage, emailSentStatus]);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    validateForm();
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData)
+    setError(true);
+    if (formData.filter((field) => field.value === '').length > 0) {
+      setErrorMessage('Please fill in all fields');
+      return;
+    } else {
+      validateForm('firstName', formData[0].value);
+      validateForm('lastName', formData[1].value);
+      validateForm('email', formData[2].value);
+      validateForm('message', formData[3].value);
+      if (formErrors.filter((field) => field.length > 0).length > 0) {
+        setErrorMessage('Please resolve all errors');
+        return;
+      } else {
+        sendFormData();
+      }
+    }
   };
 
   return (
@@ -94,52 +190,17 @@ const ContactPage = () => {
           onSubmit={onSubmit}
           action='post'
           className='w-full flex flex-col space-y-6 max-w-sm px-4 py-12 border-2 border-slate-950 rounded-xl shadow-indigo-600 mx-auto hover:shadow-lg hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4 md:px-6 '>
-          <FormGroup
-            type='text'
-            label='First name'
-            name='firstName'
-            placeholder='Your first name'
-            value={formData.firstName}
-            formData={formData}
-            setFormData={setFormData}
-          />
-
-          <FormGroup
-            type='text'
-            label='Last name'
-            name='lastName'
-            placeholder='Your last name'
-            value={formData.lastName}
-            formData={formData}
-            setFormData={setFormData}
-          />
-
-          <FormGroup
-            type='email'
-            label='email'
-            name='email'
-            placeholder='Your email'
-            value={formData.email}
-            formData={formData}
-            setFormData={setFormData}
-          />
-
-          <div className='flex flex-col space-y-2 relative'>
-            <label
-              htmlFor='Message'
-              className='absolute top-[-5px] bg-gray-200 text-gray-900 px-2 left-4 rounded-md'>
-              Type in message
-            </label>
-            <textarea
-              type='text'
-              name='message'
-              id='message'
-              value={formData.message}
-              onChange={handleChange}
-              className='bg-transparent border-2 border-slate-900 rounded h-40 text-gray-900 px-2 pt-3 placeholder:text-gray-600 placeholder:pl-3 hover:shadow-2xl hover:shadow-indigo-600 hover:border-indigo-600 transition-all duration-4'
-              placeholder='Tell me anything'
+          {formData.map((formField) => (
+            <FormGroup
+              key={formField.id}
+              formField={formField}
+              setFormData={setFormData}
+              formErrors={formErrors}
+              formData={formData}
+              validateForm={validateForm}
             />
-          </div>
+          ))}
+
           <motion.div
             initial={{ scale: 1 }}
             whileHover={{ scale: [1, 1.1, 1, 1.2, 1.1, 3, 1.1] }}
@@ -151,8 +212,24 @@ const ContactPage = () => {
               Send Email
             </button>
           </motion.div>
+          {loading && (
+            <motion.img
+              animate={{ rotate: [0, 360] }}
+              transition={{ repeat: Infinity, duration: 2, ease: 'linear' }} // Set loop and duration
+              src={loadingImg}
+              alt='loading'
+              className='w-8'
+            />
+          )}
 
-          <p className='text-green-500 w-full lg:text-lg'>{emailSentStatus}</p>
+          {emailSentStatus && (
+            <p
+              className={`text-green-500 ${
+                error ? 'text-red-700' : ''
+              } w-full lg:text-lg`}>
+              {emailSentStatus}
+            </p>
+          )}
           {errorMessage && error && (
             <p className='text-red-700 w-full lg-text-lg'>{errorMessage}</p>
           )}

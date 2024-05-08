@@ -6,10 +6,9 @@ import devImage from '../images/dev2.svg';
 
 const Hero = () => {
   return (
-    <section className=' flex h-[45rem] min-h-screen relative flex-col space-y-6 px-6 bg-gradient-to-b to-black/90 from-indigo-950 items-center justify-center lg:pt-20 lg:max-w-screen'>
-      {/* TypewriterHome handles typewriter effect on homepage lol */}
+    <section className=' flex flex-col space-y-6 min-h-screen relative flex-col px-6 pt-20 bg-gradient-to-b to-black/90 from-indigo-950 items-center justify-center md:flex-row lg:pt-20 lg:max-w-screen'>
       <Slide
-        slideClass='absolute left-4 top-32 flex flex-col space-y-6 md:left-16 lg:left-28 '
+        slideClass='md:absolute left-4 top-32 flex flex-col space-y-6 md:left-16 lg:left-28 '
         slideVariants={{
           hidden: {
             x: -200,
@@ -39,8 +38,8 @@ const Hero = () => {
             transition: { duration: 0.5, delay: 0.5 },
           },
         }}
-        slideClass='absolute -right-12 bottom-10 w-11/12 md:top-[48%] lg:w-5/12 lg:bottom-24 lg:top-auto' >
-        <img src={devImage} alt='' />
+        slideClass=' relative -right-12 w-[120%] md:w-11/12 md:absolute md:top-[48%] lg:w-5/12 lg:bottom-24 lg:top-auto'>
+        <img src={devImage} alt='' className='' />
       </Slide>
     </section>
   );
