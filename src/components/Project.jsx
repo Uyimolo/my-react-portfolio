@@ -20,7 +20,7 @@ const Project = ({ project }) => {
 
             className={`flex justify-center items-center p-4 lg:space-y-0 xl:max-w-3xl 2xl:max-w-6xl`}>
             <Slide
-              slideClass=' w-full w-[150%]'
+              slideClass=' w-full md:w-[80%]'
               slideVariants={{
                 hidden: { x: -100 },
                 visible: {
@@ -40,7 +40,7 @@ const Project = ({ project }) => {
             </Slide>
 
             <Slide
-              slideClass='w-[35%] w-[30%] '
+              slideClass='w-[25%] md:w-[20%] '
               slideVariants={{
                 hidden: { x: 50 },
                 visible: {

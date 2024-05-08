@@ -38,7 +38,7 @@ const Hero = () => {
             transition: { duration: 0.5, delay: 0.5 },
           },
         }}
-        slideClass=' relative -right-12 w-[120%] md:w-11/12 md:absolute md:top-[48%] lg:w-5/12 lg:bottom-24 lg:top-auto'>
+        slideClass=' relative -right-12 w-[120%] max-w-md md:max-w-lg md:w-11/12 md:absolute md:top-[48%] lg:max-w-xl lg:w-5/12 lg:bottom-24 lg:top-auto'>
         <img src={devImage} alt='' className='' />
       </Slide>
     </section>
