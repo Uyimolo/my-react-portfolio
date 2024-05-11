@@ -2,13 +2,13 @@ import TypewriterHome from './TypewriterHome';
 import Slide from './Slide';
 import ButtonCta from './ButtonCta';
 // import responsive from '../images/responsive.png'
-import devImage from '../images/dev2.svg';
+import heroImage from '../images/hero-image.svg';
 
 const Hero = () => {
   return (
-    <section className=' flex flex-col space-y-6 min-h-screen relative flex-col px-6 pt-20 bg-gradient-to-b to-black/90 from-indigo-950 items-center justify-center md:flex-row lg:pt-20 lg:max-w-screen'>
+    <section className=' flex flex-col space-y-12 relative flex-col pt-20 bg-gradient-to-b to-black/90 from-hero-bg pb-20 lg:flex-row lg:space-y-0 lg:h-screen lg:max-h-[38rem] lg:items-center lg:space-x-0 md:pt-28 overflow-hidden '>
       <Slide
-        slideClass='md:absolute left-4 top-32 flex flex-col space-y-6 md:left-16 lg:left-28 '
+        slideClass=' flex flex-col pl-6 space-y-12 md:pl-16 xl:pl-28 '
         slideVariants={{
           hidden: {
             x: -200,
@@ -20,13 +20,13 @@ const Hero = () => {
             transition: { duration: 0.5, delay: 0.3 },
           },
         }}>
-        <h1 className='text-[2.6em] bg-transparent  leading-[1.1] text-gray-200  font-Poppins max-w-sm mt-6  mb:text-left mb-8 md:text-6xl md:max-w-lg md:mb-8 md:max-w-lg md:mx-auto lg:max-w-3xl  lg:text-7xl '>
+        <h1 className='text-[2.6em] bg-transparent leading-[1.1] text-hero-text  font-Poppins max-w-sm mt-6 mb:text-left md:text-7xl md:max-w-3xl md:max-w-lg lg:max-w-4xl lg:bg-blak lg:text-6xl xl:text-7xl'>
           Empowering businesses with <TypewriterHome />
           solutions.
         </h1>
 
         <div className=''>
-          <ButtonCta link='projects' text='View Projects' />
+          <ButtonCta link='projects' text='View Projects' backgroundColor='bg-hero-text' textColor='text-gray-900' />
         </div>
       </Slide>
       <Slide
@@ -38,8 +38,12 @@ const Hero = () => {
             transition: { duration: 0.5, delay: 0.5 },
           },
         }}
-        slideClass=' relative -right-12 w-[120%] max-w-md md:max-w-lg md:w-11/12 md:absolute md:top-[48%] lg:max-w-xl lg:w-5/12 lg:bottom-24 lg:top-auto'>
-        <img src={devImage} alt='' className='' />
+        slideClass='w-full grid lg:bg-blac lg:w-fit'>
+        <img
+          src={heroImage}
+          alt=''
+          className=' w-[100%]  justify-self-end -right-12 relative md:w-[80%] lg:w-[100%]'
+        />
       </Slide>
     </section>
   );

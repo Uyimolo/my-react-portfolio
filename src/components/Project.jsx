@@ -5,7 +5,7 @@ import MildCta from './MildCta';
 const Project = ({ project }) => {
   return (
     <div className='border-2 border-b-gray-400 pb-12'>
-      <Slide slideClass='group flex space-y-12 flex-col mx-auto items-center justify-center'>
+      <Slide slideClass='group flex space-y-6 flex-col mx-auto items-center justify-center'>
         <div>
           <h3
             className={`text-4xl font-Lobster text-center italic font-bold text-indigo-950 md:text-5xl lg:text-6xl`}>
@@ -14,13 +14,12 @@ const Project = ({ project }) => {
         </div>
         {/*  */}
         <div
-        //  style={{backgroundColor: `${project.backgroundColor}`}}
          >
           <div
 
             className={`flex justify-center items-center p-4 lg:space-y-0 xl:max-w-3xl 2xl:max-w-6xl`}>
             <Slide
-              slideClass=' w-full md:w-[80%]'
+              slideClass=' w-full md:w-[80%] lg:w-[70%]'
               slideVariants={{
                 hidden: { x: -100 },
                 visible: {
@@ -40,7 +39,7 @@ const Project = ({ project }) => {
             </Slide>
 
             <Slide
-              slideClass='w-[25%] md:w-[20%] '
+              slideClass='w-[25%] md:w-[20%] lg:w-[18%] '
               slideVariants={{
                 hidden: { x: 50 },
                 visible: {

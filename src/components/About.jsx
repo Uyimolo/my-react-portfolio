@@ -1,5 +1,6 @@
 import MildCta from './MildCta';
 import Slide from './Slide';
+import SmallHeading from './SmallHeading';
 import TechStack from './TechStack';
 import { motion } from 'framer-motion';
 
@@ -25,9 +26,7 @@ const About = () => {
   return (
     <section className='bg-gradient-to-b from-black/90 to-black py-12 '>
       <Slide slideClass={slideClass}>
-        <h2 className='text-3xl font-Poppins text-gray-200 text-center lg:text-4xl '>
-          A Little About Me
-        </h2>
+        <SmallHeading heading='A little about me' />
 
         <p className='text-gray-300 font-Poppins mx-auto w-[90%] max-w-[35rem] md:max-w-2xl leading- text-center  lg:max-w-3xl lg:text-lg '>
           {`Hey there, I'm Uyi, your friendly neighborhood front-end web developer! I've got a knack for creating websites that not only look cool but work like a charm. `}

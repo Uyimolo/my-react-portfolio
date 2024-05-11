@@ -1,8 +1,21 @@
-import logo from "../images/logo-white.png";
+// import {LuSparkle} from 'react-icons/lu'
+import sparkle from '../images/sparkle.svg';
+
 const Logo = () => {
   return (
-    <div className=" w-16 h-16 self-center p-2 bg-indigo-800/25 relative rounded-full backdrop-blur-sm shadow-md shadow-black">
-      <img src={logo} alt="logo" className="w-20 absolute -left-2 top-[50%] -translate-y-[50%]"  />
+    <div className=''>
+      <div className='flex items-center relative -bottom-0.5 lg:-bottom-1.5'>
+        <p className='text-hero-text font-semibold font-Poppins uppercase leading-none lg:text-lg backdrop-shadow-lg '>
+          Uyioghosa
+        </p>
+        <img src={sparkle} alt='' className='w-3' />
+      </div>
+      <div className='flex items-center relative -top-0.5 lg:-top-1.5'>
+        <img src={sparkle} alt='' className='w-3' />
+        <p className='text-hero-text font-semibold font-Poppins uppercase leading-none lg:text-lg backdrop-shadow-lg'>
+          Urhoghide
+        </p>
+      </div>{' '}
     </div>
   );
 };

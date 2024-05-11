@@ -1,21 +1,15 @@
-import { motion } from 'framer-motion';
 import Project from '../components/Project';
-
+import palette from '../images/palette.svg';
 import projectList from '../arraysAndObjects.jsx/projectList';
 import ButtonCta from '../components/ButtonCta';
+import Heading from '../components/Heading';
+import PageDiv from '../components/PageDiv';
 const Gallery = () => {
   return (
-    <div className='py-20 min-h-screen bg-gray-200'>
-      <motion.div
-        initial={{ x: '100%' }}
-        animate={{ x: 0 }}
-        // exit={{x:'100%'}}
-        transition={{ delay: 0.5, type: 'spring', stiffness: 100 }}
-        className='px-6 flex flex-col space-y-16 md:px-16 xl:px-28'>
-        <div className='flex flex-col space-y-2'>
-          <h1 className='text-5xl font-Lobster text-center italic font-bold text-indigo-950 md:text-6xl lg:text-7xl'>
-            My gallery
-          </h1>
+    <section className='py-20 min-h-scree bg-gray-200'>
+      <PageDiv>
+        <div className='flex flex-col space-y-2 md:mt-6'>
+          <Heading heading='My gallery' />
           <p className='text-gray-900 text-center mx-auto md:max-w-2xl lg:max-w-3xl lg:text-lg '>
             (Where great code meets great design)
           </p>
@@ -33,9 +27,12 @@ const Gallery = () => {
         </div>
 
         <div className='flex flex-col space-y-8 items-center'>
-          <h2 className='text-3xl text-gray-800 text-center lg:text-4xl '>
-            Lets make more magic together
-          </h2>
+          <div className='flex items-center '>
+            <h2 className='text-3xl text-gray-800 text-center lg:text-4xl '>
+              Lets make more magic together
+            </h2>
+            <img src={palette} alt='' className='w-12' />
+          </div>
           <div className='w-fit'>
             <ButtonCta
               text='Contact me'
@@ -44,8 +41,8 @@ const Gallery = () => {
             />
           </div>
         </div>
-      </motion.div>
-    </div>
+      </PageDiv>
+    </section>
   );
 };
 
