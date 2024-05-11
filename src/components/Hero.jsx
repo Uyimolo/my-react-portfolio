@@ -2,7 +2,7 @@ import TypewriterHome from './TypewriterHome';
 import Slide from './Slide';
 import ButtonCta from './ButtonCta';
 // import responsive from '../images/responsive.png'
-import heroImage from '../images/hero-image.svg';
+import  heroImage from '../images/Hero-image.svg';
 
 const Hero = () => {
   return (
